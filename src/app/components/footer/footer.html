@@ -1,0 +1,96 @@
+<!-- START FOOTER -->
+<footer class="footer-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="footer_social">
+                    <ul>
+                        <li><a data-toggle="tooltip" data-placement="top" title="Facebook" href="#"><i
+                                    class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a data-toggle="tooltip" data-placement="top" title="Twitter" href="#"><i
+                                    class="fa fa-instagram"></i></a>
+                        </li>
+                        <li><a data-toggle="tooltip" data-placement="top" title="Google Plus" href="#"><i
+                                    class="fa fa-google-plus"></i></a>
+                        </li>
+                        <li><a data-toggle="tooltip" data-placement="top" title="Linkedin" href="#"><i
+                                    class="fa fa-linkedin"></i></a>
+                        </li>
+                        <li><a data-toggle="tooltip" data-placement="top" title="Youtube" href="#"><i
+                                    class="fa fa-youtube"></i></a>
+                        </li>
+                        <li><a data-toggle="tooltip" data-placement="top" title="Skype" href="#"><i
+                                    class="fa fa-skype"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row footer-padding">
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+                <div class="single_footer">
+                    <h4>Contact Us</h4>
+                    <div class="footer_contact">
+                        <ul>
+                            <li><i class="fa fa-rocket"></i> <span>3481 Melrose Place, Beverly Hills, CA
+                                    90210</span></li>
+                            <li><i class="fa fa-phone"></i> <span>Call Us - (+1) 517 397 7100</span></li>
+                            <li><i class="fa fa-fax"></i> <span>Fax - (+12) 123 1234</span></li>
+                            <li><i class="fa fa-envelope"></i> <span>info@example.com</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--- END COL -->
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+                <div class="single_footer">
+                    <h4>Customer service</h4>
+                    <div class="footer_contact">
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Order History</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Specials</a></li>
+                            <li><a href="#">Help Center</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--- END COL -->
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+                <div class="single_footer">
+                    <h4>Helpful Link</h4>
+                    <div class="footer_contact">
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Investor Relations</a></li>
+                            <li><a href="#">Advanced Search</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--- END COL -->
+            <div class="col-lg-3 col-sm-3 col-xs-12">
+                <div class="single_footer">
+                    <h4>Why choose Us</h4>
+                    <div class="footer_contact">
+                        <ul>
+                            <li><a href="#">Shopping Guide</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Investor Relations</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--- END COL -->
+        </div><!--- END ROW -->
+        <div class="row text-center">
+            <div class="col-lg-12 col-sm-12 col-xs-12 wow zoomIn">
+                <p class="footer_copyright">Hilux &copy; 2026 All Rights Reserved. Distributed by <a
+                        href="https://themewagon.com" target="_blank">ThemeWagon</a></p>.
+            </div><!--- END COL -->
+        </div><!--- END ROW -->
+    </div><!--- END CONTAINER -->
+</footer>
+<!-- END FOOTER -->

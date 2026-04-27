@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+/* Correction des erreurs Owl Carousel */
+.owl-theme .owl-controls .owl-page {
+    display: inline;
+}
+
+.owl-carousel {
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.owl-carousel:active {
+    cursor: move;
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+/* Correction des chemins d'images manquantes */
+.some-class-that-uses-missing-image {
+    background-image: none !important;
+}
+
+/* Style additionnel pour éviter les erreurs */
+[style*="background-image"]:not([style*="background-image: none"]) {
+    background-image: none;
+}
