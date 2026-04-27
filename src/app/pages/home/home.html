@@ -1,22 +1,137 @@
-<!-- START HOME -->
-<section id="home" class="home_bg"
-    style="background-image: url(assets/img/bg/home-bg.jpg);  background-size:cover; background-position: center center;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 text-center">
-                <div class="hero-text">
-                    <h2>Best Real state deals</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum justo vitae
-                        convallis varius. Nulla tristique risus ut justo pulvinar mattis.</p>
-                    <div class="home_btn">
-                        <a href="about.html" class="app-btn wow bounceIn page-scroll home_btn_color_one"
-                            data-wow-delay=".6s">About us</a>
-                        <a href="gallery.html" class="app-btn wow bounceIn page-scroll home_btn_color_two"
-                            data-wow-delay=".8s">our Listing</a>
-                    </div>
-                </div>
-            </div><!--- END COL -->
-        </div><!--- END ROW -->
-    </div><!--- END CONTAINER -->
+<!-- HERO SECTION -->
+<section class="hero" #heroSection>
+  <div class="hero-bg">
+    <div class="hero-grain"></div>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow hero-eyebrow" #heroEyebrow>ORGANISME CERTIFIÉ QUALIOPI</p>
+    <h1 class="hero-title" #heroTitle>
+      Des compétences<br>qui changent<br><em>une carrière.</em>
+    </h1>
+    <p class="hero-subtitle" #heroSubtitle>
+      SAF Formation accompagne les professionnels et les entreprises
+      dans le développement de compétences concrètes,
+      immédiatement opérationnelles.
+    </p>
+    <div class="hero-ctas" #heroCtas>
+      <a routerLink="/formations" class="btn btn-gold">Découvrir nos formations</a>
+      <a routerLink="/la-dirigeante" class="btn btn-ghost">Parler à la dirigeante</a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator" #heroScroll>
+    <span>Défiler</span>
+    <div class="scroll-line"></div>
+  </div>
 </section>
-<!-- END  HOME -->
+
+<!-- STATS SECTION -->
+<section class="stats-section" #statsSection>
+  <div class="stats-grid">
+    <div class="stat-item" *ngFor="let stat of stats; let i = index" [attr.data-index]="i">
+      <p class="stat-number">{{ stat.number }}</p>
+      <p class="stat-label">{{ stat.label }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILS SECTION -->
+<section class="profils-section" #profilsSection>
+  <div class="profils-eyebrow">
+    <span class="eyebrow">VOTRE SITUATION</span>
+  </div>
+  <h2 class="profils-title" #profilsTitle>Quel est votre profil ?</h2>
+  <div class="profils-grid">
+    <a *ngFor="let profil of profils; let i = index"
+       [routerLink]="profil.route"
+       class="profil-card"
+       [attr.data-index]="i">
+      <div class="profil-icon">{{ profil.icon }}</div>
+      <h3 class="profil-name">{{ profil.name }}</h3>
+      <p class="profil-desc">{{ profil.desc }}</p>
+      <span class="profil-cta">
+        En savoir plus
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- FORMATIONS SECTION -->
+<section class="formations-section" #formationsSection>
+  <div class="formations-header">
+    <span class="eyebrow">NOS FORMATIONS</span>
+    <h2 class="formations-title" #formationsTitle>
+      Des programmes ancrés<br>dans la réalité professionnelle.
+    </h2>
+    <p class="formations-subtitle">
+      Chaque parcours est conçu à partir de situations professionnelles réelles.
+      Finançables CPF, OPCO et France Travail.
+    </p>
+  </div>
+  <div class="formations-grid">
+    <a *ngFor="let formation of formations; let i = index"
+       [routerLink]="formation.route"
+       class="formation-card"
+       [attr.data-index]="i">
+      <span class="formation-eyebrow eyebrow">{{ formation.category }}</span>
+      <h3 class="formation-title">{{ formation.title }}</h3>
+      <p class="formation-desc">{{ formation.desc }}</p>
+      <span class="formation-badge">{{ formation.badge }}</span>
+      <span class="formation-link">
+        Voir la formation
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+  <div class="formations-cta-wrap">
+    <a routerLink="/formations" class="btn btn-gold-outline">Voir toutes les formations</a>
+  </div>
+</section>
+
+<!-- QUALIOPI SECTION -->
+<section class="qualiopi-section" #qualiopiSection>
+  <div class="qualiopi-inner">
+    <div class="qualiopi-logo-wrap">
+      <img src="LOGO SAF Officiel.png" alt="Logo Qualiopi" class="qualiopi-logo" />
+    </div>
+    <p class="qualiopi-mention">
+      La certification qualité a été délivrée au titre des catégories :
+      <strong>Action de formation, Validation des Acquis de l'Expérience (VAE), Bilan de compétences.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- DIRIGEANTE SECTION -->
+<section class="dirigeante-section" #dirigeanteSection>
+  <div class="dirigeante-inner">
+    <div class="dirigeante-text">
+      <span class="eyebrow">LA DIRIGEANTE</span>
+      <h2 class="dirigeante-title" #dirigeanteTitle>
+        Une expertise rare,<br>au service de<br><em>votre réussite.</em>
+      </h2>
+      <p class="dirigeante-body">
+        Safa, directrice pédagogique de SAF Formation, allie une formation académique
+        de haut niveau (Master en ingénierie de la formation, niveau 7) à plus d'une
+        décennie d'accompagnement direct auprès de professionnels et d'entreprises.
+      </p>
+      <div class="dirigeante-badges">
+        <span class="badge" *ngFor="let badge of dirigeanteBadges">{{ badge }}</span>
+      </div>
+      <a routerLink="/la-dirigeante" class="btn btn-gold">Découvrir son parcours</a>
+    </div>
+    <div class="dirigeante-visual" #dirigeanteVisual>
+      <div class="dirigeante-photo-frame">
+        <div class="dirigeante-photo-placeholder">
+          <span>Photo à venir</span>
+        </div>
+      </div>
+      <div class="dirigeante-quote">
+        <svg class="quote-mark" width="40" height="30" viewBox="0 0 40 30" fill="none">
+          <path d="M0 30V18C0 8 6 2 18 0v6C12 7.5 9 11 9 16v2h9v12H0ZM22 30V18C22 8 28 2 40 0v6C34 7.5 31 11 31 16v2h9v12H22Z" fill="#C4933A" opacity="0.6"/>
+        </svg>
+        <p class="quote-text">"La formation n'est efficace que lorsqu'elle part de la réalité du terrain."</p>
+        <p class="quote-author">— Safa, Directrice pédagogique</p>
+      </div>
+    </div>
+  </div>
+</section>

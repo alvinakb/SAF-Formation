@@ -1,0 +1,312 @@
+/* ================================================================
+   SAF FORMATION — navbar.css
+   Palette : #111111 | #C4933A | #F5E6C8 | #FAFAF7 | #666666
+   ================================================================ */
+
+/* ── NDA BANDEAU ─────────────────────────────────────────────── */
+.nda-bandeau {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #F0EEE8;
+  border-bottom: 1px solid #E8D9B0;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #666666;
+  position: relative;
+  z-index: 200;
+}
+
+.nda-bandeau .sep { opacity: 0.4; }
+
+.nda-bandeau a {
+  color: #666666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nda-bandeau a:hover { color: #C4933A; }
+
+/* ── HEADER ──────────────────────────────────────────────────── */
+.site-header {
+  position: fixed;
+  top: 36px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 72px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(17, 17, 17, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.header-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* ── LOGO ────────────────────────────────────────────────────── */
+.site-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-saf {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #C4933A;
+  letter-spacing: 0.05em;
+}
+
+.logo-formation {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── DESKTOP NAV ─────────────────────────────────────────────── */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.desktop-nav .nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.desktop-nav .nav-link:hover,
+.desktop-nav .nav-link.active { color: #C4933A; }
+
+.desktop-nav .nav-cta {
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #111111;
+  background: #C4933A;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.desktop-nav .nav-cta:hover {
+  background: #A87828;
+  transform: translateY(-1px);
+}
+
+/* ── HAMBURGER ───────────────────────────────────────────────── */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  margin-right: -8px;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: #ffffff;
+  transition: background 0.2s;
+}
+
+.hamburger:hover span { background: #C4933A; }
+
+/* ── FULLSCREEN OVERLAY ──────────────────────────────────────── */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: none; /* GSAP gère l'opacité */
+}
+
+.nav-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Bouton fermeture */
+.nav-close {
+  position: absolute;
+  top: 28px;
+  right: 36px;
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 8px;
+  transition: color 0.2s;
+}
+.nav-close:hover { color: #C4933A; }
+
+/* ── PANNEAU IMAGE (gauche 50%) ──────────────────────────────── */
+.nav-image-panel {
+  flex: 0 0 50%;
+  position: relative;
+  overflow: hidden;
+  background: #111111;
+}
+
+.nav-image-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  transition: background-image 0.4s ease;
+}
+
+.nav-image-caption {
+  position: absolute;
+  bottom: 44px;
+  left: 44px;
+  right: 44px;
+  color: #ffffff;
+}
+
+.nav-image-eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #C4933A;
+  margin-bottom: 10px;
+}
+
+.nav-image-desc {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── PANNEAU LIENS (droite 50%) ──────────────────────────────── */
+.nav-links-panel {
+  flex: 0 0 50%;
+  background: #FAFAF7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px;
+  gap: 0;
+}
+
+.nav-menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 600;
+  color: #aaaaaa;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  opacity: 0; /* animé par GSAP */
+  transition: color 0.2s;
+}
+
+.nav-menu-link:hover { color: #C4933A; }
+
+.link-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.nav-menu-link:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Bas du panneau */
+.nav-overlay-footer {
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.overlay-email {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #666666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.overlay-email:hover { color: #C4933A; }
+
+.btn-overlay-cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 12px 24px;
+  background: #C4933A;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-overlay-cta:hover {
+  background: #A87828;
+  transform: translateY(-1px);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .desktop-nav .nav-link { display: none; }
+}
+
+@media (max-width: 768px) {
+  .site-header { padding: 0 20px; }
+  .desktop-nav { display: none; }
+
+  .nav-image-panel { display: none; }
+  .nav-links-panel {
+    flex: 0 0 100%;
+    padding: 80px 32px;
+  }
+}

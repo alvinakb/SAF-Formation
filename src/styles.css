@@ -26,3 +26,12 @@
 [style*="background-image"]:not([style*="background-image: none"]) {
     background-image: none;
 }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FAFAF7;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+}
