@@ -1,19 +1,19 @@
 <!-- BANDEAU NDA -->
 <div class="nda-bandeau">
-  <span>NDA XXXXXXXXX</span>
-  <span class="sep">│</span>
-  <a href="mailto:contact@saf-formation.fr">contact&#64;saf-formation.fr</a>
+    <span>NDA XXXXXXXXX</span>
+    <span class="sep">│</span>
+    <a href="mailto:contact@saf-formation.fr">contact&#64;saf-formation.fr</a>
 </div>
 
 <!-- HEADER -->
 <header class="site-header" [class.scrolled]="scrolled" role="banner">
-  <div class="header-inner">
+    <div class="header-inner">
 
-    <!-- Logo -->
-    <a class="site-logo" routerLink="/" aria-label="SAF Formation — Accueil">
-      <span class="logo-saf">SAF</span>
-      <span class="logo-formation">Formation</span>
-    </a>
+        <!-- Logo -->
+        <a class="site-logo" routerLink="/" aria-label="SAF Formation — Accueil">
+            <span class="logo-saf">SAF</span>
+            <span class="logo-formation">Formation</span>
+        </a>
 
     <!-- Hamburger -->
     <button class="hamburger" (click)="openMenu()" aria-label="Ouvrir le menu" [attr.aria-expanded]="menuOpen">
@@ -22,51 +22,48 @@
       <span></span>
     </button>
 
-  </div>
+    </div>
 </header>
 
 <!-- FULLSCREEN MENU OVERLAY (style Northeastern) -->
 <div class="nav-overlay" [class.open]="menuOpen" role="dialog" aria-modal="true" aria-label="Menu principal">
 
-  <!-- Bouton fermeture -->
-  <button class="nav-close" (click)="closeMenu()" aria-label="Fermer le menu">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <line x1="4" y1="4" x2="24" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <line x1="24" y1="4" x2="4" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </button>
-
-  <!-- Panneau image gauche -->
-  <div class="nav-image-panel">
-    <div class="nav-image-bg" [style.backgroundImage]="'url(' + activeMenuImage + ')'"></div>
-    <div class="nav-image-caption">
-      <span class="nav-image-eyebrow">{{ activeMenuLabel }}</span>
-      <p class="nav-image-desc">{{ activeMenuDesc }}</p>
-    </div>
-  </div>
-
-  <!-- Panneau liens droite -->
-  <div class="nav-links-panel">
-    <nav role="navigation" aria-label="Menu principal">
-      <a
-        *ngFor="let item of menuItems"
-        [routerLink]="item.route"
-        class="nav-menu-link"
-        (mouseenter)="onMenuHover(item)"
-        (click)="onLinkClick()">
-        {{ item.label }}
-        <svg class="link-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Bouton fermeture -->
+    <button class="nav-close" (click)="closeMenu()" aria-label="Fermer le menu">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <line x1="4" y1="4" x2="24" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="24" y1="4" x2="4" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
-      </a>
-    </nav>
+    </button>
 
-    <div class="nav-overlay-footer">
-      <a href="mailto:contact@saf-formation.fr" class="overlay-email">contact&#64;saf-formation.fr</a>
-      <a routerLink="/contact" class="btn-overlay-cta" (click)="onLinkClick()">
-        Prendre contact
-      </a>
+    <!-- Panneau image gauche -->
+    <div class="nav-image-panel">
+        <div class="nav-image-bg" [style.backgroundImage]="'url(' + activeMenuImage + ')'"></div>
+        <div class="nav-image-caption">
+            <span class="nav-image-eyebrow">{{ activeMenuLabel }}</span>
+            <p class="nav-image-desc">{{ activeMenuDesc }}</p>
+        </div>
     </div>
-  </div>
+
+    <!-- Panneau liens droite -->
+    <div class="nav-links-panel">
+        <nav role="navigation" aria-label="Menu principal">
+            <a *ngFor="let item of menuItems" [routerLink]="item.route" class="nav-menu-link"
+                (mouseenter)="onMenuHover(item)" (click)="onLinkClick()">
+                {{ item.label }}
+                <svg class="link-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+        </nav>
+
+        <div class="nav-overlay-footer">
+            <a href="mailto:contact@saf-formation.fr" class="overlay-email">contact&#64;saf-formation.fr</a>
+            <a routerLink="/contact" class="btn-overlay-cta" (click)="onLinkClick()">
+                Prendre contact
+            </a>
+        </div>
+    </div>
 
 </div>
