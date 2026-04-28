@@ -1,137 +1,305 @@
-<!-- HERO SECTION -->
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — HOME PAGE (Version Northeastern + GSAP)
+     Design inspiré de northeastern.edu avec animations GSAP
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ──────────────────────────────────────────────────────────────────────
+     HERO SECTION
+     ────────────────────────────────────────────────────────────────────── -->
 <section class="hero" #heroSection>
+
+  <!-- Fond image + overlays -->
   <div class="hero-bg">
-    <div class="hero-grain"></div>
+    <img class="hero-bg-img" src="../../../assets/images/SAFE.png" alt="" aria-hidden="true" />
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-bg-tint"></div>
   </div>
-  <div class="hero-content">
-    <p class="eyebrow hero-eyebrow" #heroEyebrow>ORGANISME CERTIFIÉ QUALIOPI</p>
-    <h1 class="hero-title" #heroTitle>
-      Des compétences<br>qui changent<br><em>une carrière.</em>
-    </h1>
-    <p class="hero-subtitle" #heroSubtitle>
-      SAF Formation accompagne les professionnels et les entreprises
-      dans le développement de compétences concrètes,
-      immédiatement opérationnelles.
-    </p>
-    <div class="hero-ctas" #heroCtas>
-      <a routerLink="/formations" class="btn btn-gold">Découvrir nos formations</a>
-      <a routerLink="/la-dirigeante" class="btn btn-ghost">Parler à la dirigeante</a>
-    </div>
-  </div>
-  <div class="hero-scroll-indicator" #heroScroll>
-    <span>Défiler</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
 
-<!-- STATS SECTION -->
-<section class="stats-section" #statsSection>
-  <div class="stats-grid">
-    <div class="stat-item" *ngFor="let stat of stats; let i = index" [attr.data-index]="i">
-      <p class="stat-number">{{ stat.number }}</p>
-      <p class="stat-label">{{ stat.label }}</p>
-    </div>
+  <!-- Effets visuels -->
+  <div class="hero-canvas">
+    <div class="hero-gradient"></div>
+    <canvas class="hero-grain-canvas" #grainCanvas></canvas>
   </div>
-</section>
 
-<!-- PROFILS SECTION -->
-<section class="profils-section" #profilsSection>
-  <div class="profils-eyebrow">
-    <span class="eyebrow">VOTRE SITUATION</span>
+  <!-- Rail gauche décoratif -->
+  <div class="hero-rail">
+    <div class="rail-line" #railLine></div>
+    <span class="rail-year" #railYear>2026</span>
   </div>
-  <h2 class="profils-title" #profilsTitle>Quel est votre profil ?</h2>
-  <div class="profils-grid">
-    <a *ngFor="let profil of profils; let i = index"
-       [routerLink]="profil.route"
-       class="profil-card"
-       [attr.data-index]="i">
-      <div class="profil-icon">{{ profil.icon }}</div>
-      <h3 class="profil-name">{{ profil.name }}</h3>
-      <p class="profil-desc">{{ profil.desc }}</p>
-      <span class="profil-cta">
-        En savoir plus
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-    </a>
-  </div>
-</section>
 
-<!-- FORMATIONS SECTION -->
-<section class="formations-section" #formationsSection>
-  <div class="formations-header">
-    <span class="eyebrow">NOS FORMATIONS</span>
-    <h2 class="formations-title" #formationsTitle>
-      Des programmes ancrés<br>dans la réalité professionnelle.
-    </h2>
-    <p class="formations-subtitle">
-      Chaque parcours est conçu à partir de situations professionnelles réelles.
-      Finançables CPF, OPCO et France Travail.
-    </p>
-  </div>
-  <div class="formations-grid">
-    <a *ngFor="let formation of formations; let i = index"
-       [routerLink]="formation.route"
-       class="formation-card"
-       [attr.data-index]="i">
-      <span class="formation-eyebrow eyebrow">{{ formation.category }}</span>
-      <h3 class="formation-title">{{ formation.title }}</h3>
-      <p class="formation-desc">{{ formation.desc }}</p>
-      <span class="formation-badge">{{ formation.badge }}</span>
-      <span class="formation-link">
-        Voir la formation
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-    </a>
-  </div>
-  <div class="formations-cta-wrap">
-    <a routerLink="/formations" class="btn btn-gold-outline">Voir toutes les formations</a>
-  </div>
-</section>
-
-<!-- QUALIOPI SECTION -->
-<section class="qualiopi-section" #qualiopiSection>
-  <div class="qualiopi-inner">
-    <div class="qualiopi-logo-wrap">
-      <img src="LOGO SAF Officiel.png" alt="Logo Qualiopi" class="qualiopi-logo" />
-    </div>
-    <p class="qualiopi-mention">
-      La certification qualité a été délivrée au titre des catégories :
-      <strong>Action de formation, Validation des Acquis de l'Expérience (VAE), Bilan de compétences.</strong>
-    </p>
-  </div>
-</section>
-
-<!-- DIRIGEANTE SECTION -->
-<section class="dirigeante-section" #dirigeanteSection>
-  <div class="dirigeante-inner">
-    <div class="dirigeante-text">
-      <span class="eyebrow">LA DIRIGEANTE</span>
-      <h2 class="dirigeante-title" #dirigeanteTitle>
-        Une expertise rare,<br>au service de<br><em>votre réussite.</em>
-      </h2>
-      <p class="dirigeante-body">
-        Safa, directrice pédagogique de SAF Formation, allie une formation académique
-        de haut niveau (Master en ingénierie de la formation, niveau 7) à plus d'une
-        décennie d'accompagnement direct auprès de professionnels et d'entreprises.
-      </p>
-      <div class="dirigeante-badges">
-        <span class="badge" *ngFor="let badge of dirigeanteBadges">{{ badge }}</span>
+  <!-- Contenu principal -->
+  <div class="hero-body">
+    <div class="hero-text-block">
+      <div class="hero-kicker" #heroKicker>
+        <span class="kicker-dot"></span>
+        <span>Organisme certifié Qualiopi</span>
       </div>
-      <a routerLink="/la-dirigeante" class="btn btn-gold">Découvrir son parcours</a>
+
+      <h1 class="hero-headline">
+        <span class="line-wrap" #heroLine1>
+          <span class="line-inner">Des compétences</span>
+        </span>
+        <span class="line-wrap" #heroLine2>
+          <span class="line-inner accent-gold">qui transforment</span>
+        </span>
+        <span class="line-wrap" #heroLine3>
+          <span class="line-inner">une carrière.</span>
+        </span>
+      </h1>
+
+      <p class="hero-sub" #heroSub>
+        SAF Formation accompagne professionnels et entreprises dans le développement
+        de compétences concrètes, immédiatement opérationnelles.
+      </p>
+
+      <div class="hero-actions" #heroActions>
+        <a routerLink="/formations" class="cta-primary">
+          <span>Découvrir les formations</span>
+          <svg viewBox="0 0 24 24" fill="none">
+            <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/>
+            <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+        <a routerLink="/la-dirigeante" class="cta-ghost">Parler à la dirigeante</a>
+      </div>
     </div>
-    <div class="dirigeante-visual" #dirigeanteVisual>
-      <div class="dirigeante-photo-frame">
-        <div class="dirigeante-photo-placeholder">
-          <span>Photo à venir</span>
+
+    <!-- Chiffres clés -->
+    <div class="hero-metrics" #heroMetrics>
+      <div class="metric-card" *ngFor="let stat of stats; let i = index" [attr.data-i]="i">
+        <span class="metric-value">{{ stat.number }}</span>
+        <span class="metric-desc">{{ stat.label }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" #heroScroll>
+    <div class="scroll-track"><div class="scroll-thumb"></div></div>
+    <span>Défiler</span>
+  </div>
+
+  <!-- Ticker défilant -->
+  <div class="hero-ticker" #heroTicker>
+    <div class="ticker-track">
+      <span *ngFor="let t of tickerItems">{{ t }}&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</span>
+      <span *ngFor="let t of tickerItems">{{ t }}&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────────────────
+     PROFILS SECTION
+     ────────────────────────────────────────────────────────────────────── -->
+<section class="profils" #profilsSection>
+  <div class="profils-head">
+    <p class="section-eyebrow" #profilsEyebrow>Votre situation</p>
+    <h2 class="section-title" #profilsTitle>Qui êtes-vous ?</h2>
+  </div>
+
+  <div class="profils-grid">
+    <a class="profil-item" *ngFor="let p of profils; let i = index" [routerLink]="p.route" [attr.data-idx]="i">
+      <span class="profil-num">0{{ i + 1 }}</span>
+      <h3 class="profil-name">{{ p.name }}</h3>
+      <p class="profil-desc">{{ p.desc }}</p>
+      <span class="profil-arrow">
+        <svg viewBox="0 0 24 24" fill="none">
+          <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/>
+          <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────────────────
+     FORMATIONS SECTION — STYLE NORTHEASTERN + GSAP
+     ────────────────────────────────────────────────────────────────────── -->
+<section class="formations" #formationsSection>
+
+  <div class="formations-container">
+    
+    <!-- En-tête -->
+    <div class="formations-header" #formationsHeader>
+      <div class="formations-header-left">
+        <p class="section-eyebrow" #formationsEyebrow>Nos formations</p>
+        <h2 class="section-title" #formationsTitle>
+          Explorez nos<br><em>programmes innovants.</em>
+        </h2>
+      </div>
+      <div class="formations-header-right">
+        <p class="formations-lead" #formationsLead>
+          Des parcours ancrés dans la réalité terrain,<br>
+          accessibles et finançables.
+        </p>
+      </div>
+    </div>
+
+    <!-- Filtres style Northeastern -->
+    <div class="formations-filters" #filtersContainer>
+      <button class="filter-btn" 
+              *ngFor="let cat of categories; let i = index"
+              [class.active]="activeCategory === cat.id"
+              (click)="filterCategory(cat.id)"
+              [attr.data-index]="i">
+        {{ cat.label }}
+      </button>
+      <div class="filter-active-bar" #activeBar></div>
+    </div>
+
+    <!-- Slider avec GSAP -->
+    <div class="slider-container" #sliderContainer>
+      <div class="slider-wrapper" #sliderWrapper>
+        <div class="slider-track" #sliderTrack>
+          
+          <div class="formation-card" 
+               *ngFor="let f of filteredFormations; let i = index"
+               [routerLink]="f.route"
+               [attr.data-index]="i">
+            
+            <div class="card-media">
+              <img [src]="f.image" [alt]="f.title" loading="lazy" />
+              <div class="card-overlay"></div>
+              <div class="card-badges">
+                <span class="badge-category">{{ f.categoryLabel }}</span>
+                <span class="badge-funding">{{ f.badge }}</span>
+              </div>
+            </div>
+            
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                    <circle cx="12" cy="9" r="2.5"/>
+                  </svg>
+                  {{ f.location }}
+                </span>
+                <span class="card-duration">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  {{ f.duration }}
+                </span>
+              </div>
+              <h3 class="card-title">{{ f.title }}</h3>
+              <p class="card-description">{{ f.desc }}</p>
+              <div class="card-link">
+                <span>Découvrir le programme</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="dirigeante-quote">
-        <svg class="quote-mark" width="40" height="30" viewBox="0 0 40 30" fill="none">
-          <path d="M0 30V18C0 8 6 2 18 0v6C12 7.5 9 11 9 16v2h9v12H0ZM22 30V18C22 8 28 2 40 0v6C34 7.5 31 11 31 16v2h9v12H22Z" fill="#C4933A" opacity="0.6"/>
-        </svg>
-        <p class="quote-text">"La formation n'est efficace que lorsqu'elle part de la réalité du terrain."</p>
-        <p class="quote-author">— Safa, Directrice pédagogique</p>
+
+      <!-- Navigation Slider -->
+      <div class="slider-navigation">
+        <button class="nav-btn prev" (click)="prevSlide()" [disabled]="currentSlide === 0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        
+        <div class="slider-progress">
+          <div class="progress-bar" #progressBar></div>
+          <span class="progress-text">
+            {{ currentSlide + 1 }} / {{ maxVisibleSlides }}
+          </span>
+        </div>
+        
+        <button class="nav-btn next" (click)="nextSlide()" [disabled]="currentSlide >= maxVisibleSlides - 1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
       </div>
     </div>
+
+    <!-- Footer CTA -->
+    <div class="formations-footer">
+      <a routerLink="/formations" class="cta-outline">
+        Voir toutes nos formations
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────────────────
+     QUALIOPI BANNER
+     ────────────────────────────────────────────────────────────────────── -->
+<section class="qualiopi-band" #qualiopiSection>
+  <div class="qband-inner">
+    <div class="qband-logo">
+      <img src="../../../assets/images/SAFE.png" alt="Qualiopi" />
+    </div>
+    <div class="qband-text">
+      <p class="qband-title">Certification Qualiopi</p>
+      <p class="qband-body">
+        La certification qualité a été délivrée au titre des catégories :
+        <strong>Action de formation, VAE, Bilan de compétences.</strong>
+      </p>
+    </div>
+    <div class="qband-line"></div>
+    <a routerLink="/financement" class="qband-cta">Vos financements →</a>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────────────────────────────
+     DIRIGEANTE SECTION
+     ────────────────────────────────────────────────────────────────────── -->
+<section class="dirigeante" #dirigeanteSection>
+
+  <div class="dir-visual" #dirVisual>
+    <div class="dir-photo-wrap">
+      <img src="../../../assets/images/PHOTO-2026-04-27-10-20-44.jpg" alt="Safa, dirigeante SAF Formation" class="dir-photo" />
+      <div class="dir-photo-overlay"></div>
+    </div>
+    <div class="dir-photo-caption">
+      <span>Safa — Directrice pédagogique</span>
+    </div>
+  </div>
+
+  <div class="dir-content">
+    <p class="section-eyebrow" #dirEyebrow>La dirigeante</p>
+    <h2 class="section-title dir-title" #dirTitle>
+      Une expertise rare,<br>au service de<br><em>votre réussite.</em>
+    </h2>
+
+    <blockquote class="dir-quote" #dirQuote>
+      <p>"La formation n'est efficace que lorsqu'elle part de la réalité du terrain."</p>
+    </blockquote>
+
+    <p class="dir-body" #dirBody>
+      Safa allie une formation académique de haut niveau (Master en ingénierie de
+      la formation, niveau 7) à plus d'une décennie d'accompagnement direct auprès
+      de professionnels et d'entreprises.
+    </p>
+
+    <div class="dir-tags" #dirTags>
+      <span class="tag" *ngFor="let b of dirigeanteBadges">{{ b }}</span>
+    </div>
+
+    <a routerLink="/la-dirigeante" class="cta-primary" #dirCta>
+      <span>Découvrir son parcours</span>
+      <svg viewBox="0 0 24 24" fill="none">
+        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/>
+        <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </a>
   </div>
 </section>
