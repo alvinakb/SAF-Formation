@@ -1,294 +1,282 @@
-<!-- ── HERO ─────────────────────────────────────────────────── -->
-<section class="hero">
-    <div class="hero-bg"></div>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — STRATÉGIES DE COMMUNICATION
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ── HERO ── -->
+<section class="hero" #heroSection>
+
+  <div class="hero-bg">
+    <div class="hero-bg-gradient"></div>
     <div class="hero-grain"></div>
-    <div class="hero-overlay"></div>
+  </div>
 
-    <div class="hero-inner">
-        <div class="hero-meta">
-            <span class="hero-tag">Action de formation</span>
-            <span class="hero-sep">·</span>
-            <span class="hero-tag">Éligible CPF</span>
-        </div>
-        <h1 class="hero-title">Maîtrise des stratégies<br><em>de communication</em></h1>
-        <p class="hero-accroche">
-            Bien communiquer, ce n'est pas parler davantage. C'est choisir le bon message,
-            le bon canal, au bon moment.
-        </p>
-        <div class="hero-ctas">
-            <a href="#contact" class="btn-primary">Demander un devis gratuit →</a>
-            <a href="#programme" class="btn-ghost">Voir le programme</a>
-        </div>
+  <div class="hero-rail">
+    <div class="rail-line" #railLine></div>
+    <span class="rail-label">SAF · 2026</span>
+  </div>
+
+  <div class="hero-body">
+
+    <div class="hero-eyebrow" #heroEyebrow>
+      <span class="eyebrow-dot"></span>
+      <span>Action de formation — Éligible CPF</span>
     </div>
 
-    <!-- Stat strip -->
-    <div class="hero-stats">
-        <div class="stat">
-            <span class="stat-value">21h</span>
-            <span class="stat-label">de formation</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-            <span class="stat-value">3</span>
-            <span class="stat-label">jours intensifs</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-            <span class="stat-value">100%</span>
-            <span class="stat-label">finançable</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-            <span class="stat-value">Certifié</span>
-            <span class="stat-label">Qualiopi</span>
-        </div>
+    <h1 class="hero-headline">
+      <span class="line-wrap" #heroLine1>
+        <span class="line-inner">Maîtrise des</span>
+      </span>
+      <span class="line-wrap" #heroLine2>
+        <span class="line-inner">stratégies de</span>
+      </span>
+      <span class="line-wrap" #heroLine3>
+        <span class="line-inner accent-gold">communication.</span>
+      </span>
+    </h1>
+
+    <p class="hero-sub" #heroSub>
+      Bien communiquer, ce n'est pas parler davantage. C'est choisir le bon message,
+      le bon canal, au bon moment. Cette formation donne aux professionnels les outils
+      pour construire une communication structurée, cohérente et percutante.
+    </p>
+
+    <div class="hero-pills" #heroPills>
+      <span class="pill pill-cpf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        Éligible CPF
+      </span>
+      <span class="pill pill-info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+        21 heures · 3 jours
+      </span>
+      <span class="pill pill-info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+        </svg>
+        Présentiel ou distanciel
+      </span>
     </div>
+
+    <div class="hero-actions" #heroActions>
+      <a routerLink="/contact" class="cta-primary">
+        <span>S'inscrire à cette formation</span>
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+          <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+          <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </a>
+      <a href="#programme" class="cta-ghost">Voir le programme →</a>
+    </div>
+
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" #heroScroll>
+    <div class="scroll-track">
+      <div class="scroll-thumb"></div>
+    </div>
+    <span>Défiler</span>
+  </div>
+
 </section>
 
-<!-- ── INFO CARDS ────────────────────────────────────────────── -->
-<section class="info-section">
-    <div class="container">
-        <div class="info-grid">
 
-            <div class="info-card">
-                <div class="info-card-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.2" />
-                        <path d="M10 6v4l2.5 2.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                    </svg>
-                </div>
-                <span class="info-card-label">Durée</span>
-                <span class="info-card-value">21 heures · 3 jours</span>
-                <span class="info-card-sub">Présentiel ou distanciel</span>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M10 2C7.24 2 5 4.24 5 7c0 3.75 5 11 5 11s5-7.25 5-11c0-2.76-2.24-5-5-5z"
-                            stroke="currentColor" stroke-width="1.2" />
-                        <circle cx="10" cy="7" r="1.5" stroke="currentColor" stroke-width="1.2" />
-                    </svg>
-                </div>
-                <span class="info-card-label">Public visé</span>
-                <span class="info-card-value">Managers, chargés de com</span>
-                <span class="info-card-sub">Tout professionnel</span>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M4 10h12M4 6h12M4 14h7" stroke="currentColor" stroke-width="1.2"
-                            stroke-linecap="round" />
-                    </svg>
-                </div>
-                <span class="info-card-label">Prérequis</span>
-                <span class="info-card-value">Aucun spécifique</span>
-                <span class="info-card-sub">6 mois d'expérience conseillés</span>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <rect x="3" y="5" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
-                        <path d="M7 5V4a1 1 0 011-1h4a1 1 0 011 1v1" stroke="currentColor" stroke-width="1.2" />
-                        <path d="M7 10h6M7 13h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                    </svg>
-                </div>
-                <span class="info-card-label">Financement</span>
-                <span class="info-card-value">CPF · OPCO · France Travail</span>
-                <span class="info-card-sub">Plusieurs solutions disponibles</span>
-            </div>
-
-        </div>
+<!-- ── STATS BAR ── -->
+<div class="stats-bar" #statsBar>
+  <div class="stats-inner">
+    <div class="stat-item" *ngFor="let s of stats; let i = index" [attr.data-i]="i">
+      <span class="stat-value">{{ s.value }}</span>
+      <span class="stat-label">{{ s.label }}</span>
     </div>
-</section>
+  </div>
+</div>
 
-<!-- ── OBJECTIFS ─────────────────────────────────────────────── -->
-<section class="section-objectifs">
-    <div class="container split">
-        <div class="split-left">
-            <span class="section-eyebrow">Objectifs pédagogiques</span>
-            <h2 class="section-title">Ce que vous<br><em>saurez faire</em></h2>
-        </div>
-        <div class="split-right">
-            <ul class="objectifs-list">
-                <li>
-                    <span class="obj-num">01</span>
-                    <span>Identifier les composantes d'une stratégie de communication efficace.</span>
-                </li>
-                <li>
-                    <span class="obj-num">02</span>
-                    <span>Maîtriser les outils de communication interne et externe.</span>
-                </li>
-                <li>
-                    <span class="obj-num">03</span>
-                    <span>Adapter son discours en fonction de l'interlocuteur et du contexte.</span>
-                </li>
-                <li>
-                    <span class="obj-num">04</span>
-                    <span>Construire et défendre un message clair en situation professionnelle.</span>
-                </li>
-                <li>
-                    <span class="obj-num">05</span>
-                    <span>Utiliser les supports de communication adaptés à chaque objectif.</span>
-                </li>
-            </ul>
-        </div>
+
+<!-- ── PAGE LAYOUT ── -->
+<div class="page-layout">
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="page-main">
+
+    <!-- À propos -->
+    <div class="section-block reveal">
+      <p class="section-eyebrow">À propos</p>
+      <h2 class="section-title">
+        Une formation ancrée<br>dans la <em>réalité du terrain.</em>
+      </h2>
+      <p class="section-lead">{{ formation.accroche }}</p>
     </div>
-</section>
 
-<!-- ── PROGRAMME ─────────────────────────────────────────────── -->
-<section class="section-programme" id="programme">
-    <div class="container">
-        <div class="programme-header">
-            <span class="section-eyebrow">Programme détaillé</span>
-            <h2 class="section-title">3 jours pour<br><em>transformer votre communication</em></h2>
-        </div>
-
-        <div class="programme-grid">
-
-            <div class="jour-card">
-                <div class="jour-num">01</div>
-                <div class="jour-body">
-                    <h3 class="jour-title">Fondamentaux de la communication professionnelle</h3>
-                    <ul class="jour-list">
-                        <li>Modèles de communication (Shannon, Wiener, Palo Alto)</li>
-                        <li>Communication verbale et non verbale</li>
-                        <li>L'écoute active et la reformulation</li>
-                        <li>Les filtres perceptifs et biais cognitifs</li>
-                        <li>Exercices pratiques d'observation et d'écoute</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="jour-card">
-                <div class="jour-num">02</div>
-                <div class="jour-body">
-                    <h3 class="jour-title">Stratégie et canaux de communication</h3>
-                    <ul class="jour-list">
-                        <li>Définir une stratégie adaptée à son contexte</li>
-                        <li>Sélectionner les outils et canaux pertinents</li>
-                        <li>Rédiger pour être lu : techniques d'écriture professionnelle</li>
-                        <li>Maîtriser l'email professionnel et la prise de parole</li>
-                        <li>Atelier de rédaction et de présentation</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="jour-card">
-                <div class="jour-num">03</div>
-                <div class="jour-body">
-                    <h3 class="jour-title">Mises en situation et cas pratiques</h3>
-                    <ul class="jour-list">
-                        <li>Préparer et animer une réunion efficace</li>
-                        <li>Réaliser des présentations percutantes</li>
-                        <li>Gérer les situations conflictuelles</li>
-                        <li>Cas pratiques inspirés de situations réelles</li>
-                        <li>Débrief personnalisé et plan d'action individuel</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
+    <!-- Objectifs -->
+    <div class="section-block">
+      <p class="section-eyebrow reveal">Objectifs pédagogiques</p>
+      <h2 class="section-title reveal">Ce que vous <em>apprendrez.</em></h2>
+      <ul class="objectives-list reveal-stagger">
+        <li class="obj-item" *ngFor="let obj of formation.objectifs; let i = index">
+          <span class="obj-num">0{{ i + 1 }}</span>
+          <span class="obj-text">{{ obj }}</span>
+        </li>
+      </ul>
     </div>
-</section>
 
-<!-- ── PUBLIC + PRÉREQUIS ────────────────────────────────────── -->
-<section class="section-public">
-    <div class="container two-col">
-
-        <div class="col-block">
-            <span class="section-eyebrow">Public concerné</span>
-            <h3 class="col-title">À qui s'adresse<br>cette formation ?</h3>
-            <ul class="simple-list">
-                <li>Managers et chefs d'équipe</li>
-                <li>Chargés de communication et marketing</li>
-                <li>Assistants et responsables administratifs</li>
-                <li>Commerciaux et chargés de clientèle</li>
-                <li>Indépendants et auto-entrepreneurs</li>
-            </ul>
+    <!-- Programme -->
+    <div class="section-block" id="programme">
+      <p class="section-eyebrow reveal">Programme</p>
+      <h2 class="section-title reveal">
+        3 jours pour <em>transformer votre communication.</em>
+      </h2>
+      <div class="programme-timeline reveal">
+        <div class="day-item" *ngFor="let day of formation.programme">
+          <span class="day-tag">{{ day.tag }}</span>
+          <h3 class="day-title">{{ day.title }}</h3>
+          <p class="day-desc">{{ day.desc }}</p>
         </div>
-
-        <div class="col-divider"></div>
-
-        <div class="col-block">
-            <span class="section-eyebrow">Prérequis</span>
-            <h3 class="col-title">Conditions<br>d'accès</h3>
-            <ul class="simple-list">
-                <li>Aucun prérequis spécifique</li>
-                <li>6 mois d'expérience professionnelle conseillés</li>
-                <li>Ordinateur + connexion internet pour le distanciel</li>
-            </ul>
-        </div>
-
+      </div>
     </div>
-</section>
 
-<!-- ── ÉVALUATION ────────────────────────────────────────────── -->
-<section class="section-evaluation">
-    <div class="container">
-        <div class="eval-header">
-            <span class="section-eyebrow">Évaluation des acquis</span>
-            <h2 class="section-title">Comment vos progrès<br><em>sont mesurés</em></h2>
-        </div>
-        <div class="eval-grid">
-            <div class="eval-item">
-                <span class="eval-check">✓</span>
-                <span class="eval-text">Exercices pratiques en cours de formation</span>
-            </div>
-            <div class="eval-item">
-                <span class="eval-check">✓</span>
-                <span class="eval-text">Mise en situation finale</span>
-            </div>
-            <div class="eval-item">
-                <span class="eval-check">✓</span>
-                <span class="eval-text">Questionnaire d'évaluation des acquis</span>
-            </div>
-            <div class="eval-item">
-                <span class="eval-check">✓</span>
-                <span class="eval-text">Attestation de fin de formation</span>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- Public & Prérequis -->
+    <div class="section-block">
+      <p class="section-eyebrow reveal">Public & prérequis</p>
+      <h2 class="section-title reveal">Cette formation est <em>faite pour vous.</em></h2>
+      <div class="info-grid reveal-stagger">
 
-<!-- ── FINANCEMENT ───────────────────────────────────────────── -->
-<section class="section-financement">
-    <div class="container">
-        <span class="section-eyebrow light">Financements disponibles</span>
-        <h2 class="section-title light">Cette formation peut être<br><em>intégralement financée</em></h2>
-        <div class="financement-grid">
-            <div class="fin-card">
-                <strong>CPF</strong>
-                <span>Compte Personnel de Formation</span>
-            </div>
-            <div class="fin-card">
-                <strong>OPCO</strong>
-                <span>Opérateur de Compétences</span>
-            </div>
-            <div class="fin-card">
-                <strong>Plan de développement</strong>
-                <span>Plan de formation de l'entreprise</span>
-            </div>
-            <div class="fin-card">
-                <strong>France Travail</strong>
-                <span>Sous conditions (AIF, PTP)</span>
-            </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <p class="info-card-label">Public visé</p>
+          <p class="info-card-value">{{ formation.publicVise }}</p>
         </div>
-    </div>
-</section>
 
-<!-- ── CTA FINAL ─────────────────────────────────────────────── -->
-<section class="section-cta" id="contact">
-    <div class="container cta-inner">
-        <div class="cta-text">
-            <span class="section-eyebrow">Prêt à vous lancer ?</span>
-            <h2 class="cta-title">Un entretien d'orientation<br><em>gratuit et sans engagement</em></h2>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <p class="info-card-label">Prérequis</p>
+          <p class="info-card-value">{{ formation.prerequis }}</p>
         </div>
-        <div class="cta-actions">
-            <a href="/contact" class="btn-primary large">Demander un devis →</a>
-            <a href="/financement" class="btn-outline">En savoir plus sur les financements</a>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <p class="info-card-label">Durée</p>
+          <p class="info-card-value">{{ formation.duree }}</p>
         </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <p class="info-card-label">Modalité</p>
+          <p class="info-card-value">Présentiel ou distanciel. Nous nous adaptons à vos contraintes.</p>
+        </div>
+
+      </div>
     </div>
+
+    <!-- Évaluation -->
+    <div class="section-block">
+      <p class="section-eyebrow reveal">Évaluation</p>
+      <h2 class="section-title reveal">Comment vos acquis <em>sont mesurés.</em></h2>
+      <ul class="eval-list reveal">
+        <li *ngFor="let e of formation.evaluation">{{ e }}</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" #sidebarEl>
+
+    <!-- Financement card -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <p class="sidebar-card-header-label">Financement</p>
+        <p class="sidebar-card-header-title">Cette formation est prise en charge.</p>
+      </div>
+      <div class="sidebar-card-body">
+        <ul class="funding-list">
+          <li class="funding-item" *ngFor="let f of formation.financement">
+            <span class="funding-dot"></span>
+            {{ f }}
+          </li>
+        </ul>
+        <a routerLink="/contact" class="sidebar-cta">
+          S'inscrire maintenant
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+            <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+            <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </a>
+        <a routerLink="/contact" class="sidebar-cta-outline">Demander un devis</a>
+      </div>
+    </div>
+
+    <!-- Contact card -->
+    <div class="contact-card">
+      <div class="contact-avatar">S</div>
+      <p class="contact-name">Safa</p>
+      <p class="contact-role">Directrice pédagogique</p>
+      <a routerLink="/la-dirigeante" class="contact-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l.61-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+        Parler à la dirigeante
+      </a>
+    </div>
+
+  </aside>
+
+</div>
+
+
+<!-- ── AUTRES FORMATIONS ── -->
+<section class="other-formations">
+  <div class="other-inner">
+
+    <div class="other-header">
+      <div>
+        <p class="other-eyebrow">À découvrir aussi</p>
+        <h2 class="other-title">Nos autres <em>formations.</em></h2>
+      </div>
+      <a routerLink="/formations" class="other-link">Voir tout le catalogue →</a>
+    </div>
+
+    <div class="other-grid">
+      <a class="other-card" *ngFor="let f of autresFormations; let i = index">
+        <div class="other-card-num">0{{ i + 1 }}</div>
+        <h3 class="other-card-title">{{ f.title }}</h3>
+        <p class="other-card-meta">{{ f.meta }}</p>
+        <div class="other-card-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </div>
+      </a>
+    </div>
+
+  </div>
 </section>

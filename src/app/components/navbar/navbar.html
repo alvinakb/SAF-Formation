@@ -1,5 +1,5 @@
 <!-- ── BANDEAU NDA ──────────────────────────────────────────── -->
-<div class="nda-bandeau">
+<div class="nda-bandeau" [class.hidden]="scrolled">
     <span>NDA XXXXXXXXX</span>
     <span class="sep">│</span>
     <a href="mailto:contact@saf-formation.fr">contact&#64;saf-formation.fr</a>
@@ -68,7 +68,7 @@
         </nav>
 
         <!-- Colonne 2 : sous-catégories -->
-        <div class="nav-col-sub" [class.visible]="activeItem !== null && activeItem?.subItems">
+        <div class="nav-col-sub" [class.visible]="activeItem !== null && activeItem.subItems">
 
             <p class="sub-eyebrow">{{ activeItem?.label }}</p>
 
@@ -99,11 +99,10 @@
             <a [routerLink]="activeItem?.route" class="sub-voir-tout" (click)="closeMenu()">
                 Voir toutes les formations →
             </a>
-
         </div>
 
         <!-- Colonne 3 : formations détaillées -->
-        <div class="nav-col-detail" [class.visible]="activeSubItem !== null && activeSubItem?.subSubItems">
+        <div class="nav-col-detail" [class.visible]="activeSubItem !== null && activeSubItem.subSubItems">
 
             <p class="sub-eyebrow detail-eyebrow">{{ activeSubItem?.label }}</p>
 
@@ -124,7 +123,6 @@
             <a [routerLink]="activeSubItem?.route" class="sub-voir-tout" (click)="closeMenu()">
                 Voir cette formation →
             </a>
-
         </div>
 
     </div>
