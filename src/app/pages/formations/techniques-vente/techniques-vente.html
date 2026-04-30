@@ -4,10 +4,9 @@
 
 <!-- ── HERO ── -->
 <section class="hero" #heroSection>
+
     <div class="hero-bg">
         <div class="hero-bg-gradient"></div>
-        <div class="hero-orb hero-orb--1"></div>
-        <div class="hero-orb hero-orb--2"></div>
         <div class="hero-grain"></div>
     </div>
 
@@ -17,6 +16,7 @@
     </div>
 
     <div class="hero-body">
+
         <div class="hero-eyebrow" #heroEyebrow>
             <span class="eyebrow-dot"></span>
             <span>Action de formation — Éligible CPF</span>
@@ -35,9 +35,9 @@
         </h1>
 
         <p class="hero-sub" #heroSub>
-            Vendre, c'est résoudre un problème que le client n'a pas encore nommé.
-            Cette formation transforme l'approche commerciale en une démarche structurée,
-            basée sur l'écoute, la découverte des besoins et la construction d'une argumentation qui convainc.
+            Vendre, c'est résoudre un problème que le client n'a pas encore nommé. Cette formation transforme
+            l'approche commerciale en une démarche structurée, basée sur l'écoute, la découverte des besoins
+            et la construction d'une argumentation qui convainc.
         </p>
 
         <div class="hero-pills" #heroPills>
@@ -72,16 +72,18 @@
             </a>
             <a href="#programme" class="cta-ghost">Voir le programme →</a>
         </div>
+
     </div>
 
+    <!-- Scroll indicator -->
     <div class="hero-scroll" #heroScroll>
         <div class="scroll-track">
             <div class="scroll-thumb"></div>
         </div>
         <span>Défiler</span>
     </div>
-</section>
 
+</section>
 
 <!-- ── STATS BAR ── -->
 <div class="stats-bar" #statsBar>
@@ -92,7 +94,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- ── PAGE LAYOUT ── -->
 <div class="page-layout">
@@ -109,106 +110,42 @@
             <p class="section-lead">{{ formation.accroche }}</p>
         </div>
 
-
-        <!-- ── OBJECTIFS — Slider ── -->
+        <!-- Objectifs -->
         <div class="section-block">
             <p class="section-eyebrow reveal">Objectifs pédagogiques</p>
             <h2 class="section-title reveal">Ce que vous <em>allez maîtriser.</em></h2>
-
-            <div class="obj-slider-wrapper reveal">
-                <div class="obj-slider" #objSlider>
-                    <div class="obj-slide" *ngFor="let obj of formation.objectifs; let i = index"
-                        [class.active]="i === activeObjSlide">
-                        <span class="obj-slide-num">0{{ i + 1 }}</span>
-                        <p class="obj-slide-text">{{ obj }}</p>
-                    </div>
-                </div>
-
-                <div class="obj-slider-nav">
-                    <button class="slider-btn slider-btn--prev" (click)="prevObj()" [disabled]="activeObjSlide === 0"
-                        aria-label="Précédent">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
-                            height="20">
-                            <polyline points="15 18 9 12 15 6" />
-                        </svg>
-                    </button>
-
-                    <div class="slider-dots">
-                        <button class="slider-dot" *ngFor="let obj of formation.objectifs; let i = index"
-                            [class.active]="i === activeObjSlide" (click)="goToObj(i)"
-                            [attr.aria-label]="'Objectif ' + (i + 1)"></button>
-                    </div>
-
-                    <button class="slider-btn slider-btn--next" (click)="nextObj()"
-                        [disabled]="activeObjSlide === formation.objectifs.length - 1" aria-label="Suivant">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
-                            height="20">
-                            <polyline points="9 18 15 12 9 6" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="obj-progress">
-                    <div class="obj-progress-bar"
-                        [style.width.%]="((activeObjSlide + 1) / formation.objectifs.length) * 100"></div>
-                </div>
-            </div>
+            <ul class="objectives-list reveal-stagger">
+                <li class="obj-item" *ngFor="let obj of formation.objectifs; let i = index">
+                    <span class="obj-num">0{{ i + 1 }}</span>
+                    <span class="obj-text">{{ obj }}</span>
+                </li>
+            </ul>
         </div>
 
-
-        <!-- ── PROGRAMME — Carousel 3 jours ── -->
+        <!-- Programme -->
         <div class="section-block" id="programme">
             <p class="section-eyebrow reveal">Programme</p>
             <h2 class="section-title reveal">
-                3 jours pour <em>transformer votre<br>approche commerciale.</em>
+                3 jours pour <em>transformer votre approche commerciale.</em>
             </h2>
-
-            <div class="programme-carousel reveal">
-                <div class="programme-track" #progTrack>
-                    <div class="day-card" *ngFor="let day of formation.programme; let i = index"
-                        [class.day-card--active]="i === activeDay" (click)="setActiveDay(i)">
-                        <div class="day-card-inner">
-                            <div class="day-card-top">
-                                <span class="day-number">{{ i + 1 }}</span>
-                                <span class="day-tag">{{ day.tag }}</span>
-                            </div>
-                            <h3 class="day-card-title">{{ day.title }}</h3>
-                            <div class="day-card-expand">
-                                <p class="day-card-desc">{{ day.desc }}</p>
-                                <div class="day-card-modules">
-                                    <span class="module-chip" *ngFor="let m of day.modules">{{ m }}</span>
-                                </div>
-                            </div>
-                            <div class="day-card-footer">
-                                <span class="day-card-duration">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        width="12" height="12">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <polyline points="12 6 12 12 16 14" />
-                                    </svg>
-                                    7 heures
-                                </span>
-                                <span class="day-card-toggle">
-                                    {{ i === activeDay ? 'Réduire ↑' : 'Détails ↓' }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="programme-timeline reveal">
+                <div class="day-item" *ngFor="let day of formation.programme">
+                    <span class="day-tag">{{ day.tag }}</span>
+                    <h3 class="day-title">{{ day.title }}</h3>
+                    <p class="day-desc">{{ day.desc }}</p>
                 </div>
             </div>
         </div>
 
-
-        <!-- ── PUBLIC & PRÉREQUIS ── -->
+        <!-- Public & Prérequis -->
         <div class="section-block">
             <p class="section-eyebrow reveal">Public & prérequis</p>
             <h2 class="section-title reveal">Cette formation est <em>faite pour vous.</em></h2>
-
             <div class="info-grid reveal-stagger">
+
                 <div class="info-card">
                     <div class="info-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
-                            height="24">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                             <circle cx="9" cy="7" r="4" />
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -221,8 +158,7 @@
 
                 <div class="info-card">
                     <div class="info-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
-                            height="24">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                             <polyline points="22 4 12 14.01 9 11.01" />
                         </svg>
@@ -233,8 +169,7 @@
 
                 <div class="info-card">
                     <div class="info-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
-                            height="24">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10" />
                             <polyline points="12 6 12 12 16 14" />
                         </svg>
@@ -245,8 +180,7 @@
 
                 <div class="info-card">
                     <div class="info-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
-                            height="24">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
                             <line x1="8" y1="21" x2="16" y2="21" />
                             <line x1="12" y1="17" x2="12" y2="21" />
@@ -255,103 +189,82 @@
                     <p class="info-card-label">Modalité</p>
                     <p class="info-card-value">Présentiel ou distanciel. Nous nous adaptons à vos contraintes.</p>
                 </div>
+
             </div>
         </div>
 
-
-        <!-- ── AVANTAGES ── -->
+        <!-- Avantages -->
         <div class="section-block">
             <p class="section-eyebrow reveal">Les points forts</p>
             <h2 class="section-title reveal">Pourquoi <em>choisir cette formation.</em></h2>
-
             <div class="avantages-grid reveal-stagger">
-                <div class="avantage-card" *ngFor="let av of formation.avantages; let i = index">
-                    <div class="avantage-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14"
-                            height="14">
-                            <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                    </div>
-                    <span>{{ av }}</span>
+                <div class="avantage-item" *ngFor="let avantage of formation.avantages">
+                    <span class="avantage-icon">✓</span>
+                    <span>{{ avantage }}</span>
                 </div>
             </div>
         </div>
 
-
-        <!-- ── ÉVALUATION ── -->
+        <!-- Évaluation -->
         <div class="section-block">
             <p class="section-eyebrow reveal">Évaluation</p>
             <h2 class="section-title reveal">Comment vos acquis <em>sont mesurés.</em></h2>
             <ul class="eval-list reveal">
-                <li *ngFor="let e of formation.evaluation; let i = index">
-                    <span class="eval-num">{{ i + 1 }}</span>
-                    <span>{{ e }}</span>
-                </li>
+                <li *ngFor="let e of formation.evaluation">{{ e }}</li>
             </ul>
         </div>
 
     </main>
 
-
     <!-- ── SIDEBAR ── -->
     <aside class="sidebar" #sidebarEl>
-        <div class="sidebar-sticky">
 
-            <!-- Financement card -->
-            <div class="sidebar-card">
-                <div class="sidebar-card-header">
-                    <span class="sidebar-badge">100% finançable</span>
-                    <p class="sidebar-card-header-title">Cette formation est prise en charge.</p>
-                </div>
-                <div class="sidebar-card-body">
-                    <ul class="funding-list">
-                        <li class="funding-item" *ngFor="let f of formation.financement">
-                            <span class="funding-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12"
-                                    height="12">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                            </span>
-                            {{ f }}
-                        </li>
-                    </ul>
-                    <a routerLink="/contact" class="sidebar-cta">
-                        S'inscrire maintenant
-                        <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
-                            <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
-                            <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </a>
-                    <a routerLink="/contact" class="sidebar-cta-outline">Demander un devis</a>
-                </div>
+        <!-- Financement card -->
+        <div class="sidebar-card">
+            <div class="sidebar-card-header">
+                <p class="sidebar-card-header-label">Financement</p>
+                <p class="sidebar-card-header-title">Cette formation est prise en charge.</p>
             </div>
-
-            <!-- Contact card -->
-            <div class="contact-card">
-                <div class="contact-avatar-wrap">
-                    <div class="contact-avatar">S</div>
-                    <div class="contact-avatar-ring"></div>
-                </div>
-                <p class="contact-name">Safa</p>
-                <p class="contact-role">Directrice pédagogique</p>
-                <a routerLink="/la-dirigeante" class="contact-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l.61-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            <div class="sidebar-card-body">
+                <ul class="funding-list">
+                    <li class="funding-item" *ngFor="let f of formation.financement">
+                        <span class="funding-dot"></span>
+                        {{ f }}
+                    </li>
+                </ul>
+                <a routerLink="/contact" class="sidebar-cta">
+                    S'inscrire maintenant
+                    <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                        <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
                     </svg>
-                    Parler à la dirigeante
                 </a>
+                <a routerLink="/contact" class="sidebar-cta-outline">Demander un devis</a>
             </div>
-
         </div>
+
+        <!-- Contact card -->
+        <div class="contact-card">
+            <div class="contact-avatar">S</div>
+            <p class="contact-name">Safa</p>
+            <p class="contact-role">Directrice pédagogique</p>
+            <a routerLink="/la-dirigeante" class="contact-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l.61-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Parler à la dirigeante
+            </a>
+        </div>
+
     </aside>
 
 </div>
 
-
 <!-- ── AUTRES FORMATIONS ── -->
 <section class="other-formations">
     <div class="other-inner">
+
         <div class="other-header">
             <div>
                 <p class="other-eyebrow">À découvrir aussi</p>
@@ -373,5 +286,6 @@
                 </div>
             </a>
         </div>
+
     </div>
 </section>
