@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NosValeurs } from './nos-valeurs';
+import { Nosvaleurs } from './nos-valeurs';
 
 describe('NosValeurs', () => {
   let component: NosValeurs;
