@@ -61,7 +61,7 @@ export class Faq implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       id: 5,
-      question: "Comment se déroule un bilan de compétences ?",
+      question: "comment se déroule un bilan de compétences ?",
       answer: "Le bilan de compétences se déroule en 3 phases réglementaires : une phase préliminaire d'analyse de la demande, une phase d'investigation pour explorer vos compétences, aptitudes et motivations, et une phase de conclusion avec remise d'un document de synthèse. Il dure au maximum 24 heures sur une période ne pouvant excéder 6 mois.",
       isOpen: false
     },
