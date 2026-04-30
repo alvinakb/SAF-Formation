@@ -62,37 +62,39 @@
   z-index: 1;
 }
 
-/* ── LOGO ── */
+/* ── LOGO IMAGE ──────────────────────────────────────────────────
+   Remplace les anciens .logo-saf / .logo-formation (texte)
+   Le fond du footer est brun foncé (#3d2820 → #5a3f34).
+   - Logo avec texte clair sur fond transparent → visible tel quel.
+   - Logo avec texte foncé sur fond transparent → décommentez le filtre.
+   ─────────────────────────────────────────────────────────────── */
 .footer-logo {
   display: inline-flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
   text-decoration: none;
   margin-bottom: 24px;
+  align-self: flex-start;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .footer-logo:hover {
-  opacity: 0.9;
+  opacity: 0.88;
   transform: translateY(-1px);
 }
 
-.logo-saf {
-  font-family: var(--font-serif);
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--clr-brand);
-  letter-spacing: -0.02em;
-}
-
-.logo-formation {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  color: var(--clr-text-soft);
-  text-transform: uppercase;
+.footer-logo-img {
+  height: 52px;
+  /* Équivalent visuel à l'ancien logo texte 56px */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  /*
+   * Si le logo PNG est foncé (peu visible sur fond brun) :
+   * filter: brightness(0) invert(1);
+   *
+   * Pour une teinte rosée proche de --clr-brand (#c99b8d) :
+   * filter: brightness(0) invert(1) sepia(1) saturate(0.4) hue-rotate(330deg);
+   */
 }
 
 /* ── Tagline ── */
@@ -299,8 +301,8 @@
     padding-bottom: 40px;
   }
 
-  .logo-saf {
-    font-size: 48px;
+  .footer-logo-img {
+    height: 44px;
   }
 }
 
@@ -324,12 +326,8 @@
     border-bottom: none;
   }
 
-  .logo-saf {
-    font-size: 44px;
-  }
-
-  .logo-formation {
-    font-size: 14px;
+  .footer-logo-img {
+    height: 38px;
   }
 
   .footer-tagline {
@@ -355,19 +353,14 @@
 
 /* Très petit écran */
 @media (max-width: 360px) {
-  .logo-saf {
-    font-size: 38px;
-  }
-
-  .logo-formation {
-    font-size: 13px;
-    letter-spacing: 0.12em;
+  .footer-logo-img {
+    height: 32px;
   }
 }
 
-/* Fallback background-clip: text */
+/* Fallback */
 @supports not (background-clip: text) {
-  .logo-saf {
-    color: var(--clr-brand);
+  .footer-logo-img {
+    opacity: 1;
   }
 }

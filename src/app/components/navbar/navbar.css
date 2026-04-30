@@ -7,8 +7,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap');
 
 /* ================================================================
-      NDA BANDEAU FIXE
-      ================================================================ */
+         NDA BANDEAU FIXE
+         ================================================================ */
 .nda-bandeau {
     position: fixed;
     top: 0;
@@ -25,7 +25,6 @@
     font-size: 11px;
     letter-spacing: 0.04em;
     color: #555555;
-    /* ✅ plus sombre que #666 pour meilleur contraste */
     z-index: 200;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -43,7 +42,6 @@
 
 .nda-bandeau a {
     color: #444444;
-    /* ✅ texte lien foncé et lisible */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
@@ -54,8 +52,8 @@
 }
 
 /* ================================================================
-      HEADER FIXE
-      ================================================================ */
+         HEADER FIXE
+         ================================================================ */
 .site-header {
     position: fixed;
     top: 34px;
@@ -66,7 +64,6 @@
     padding: 0 0 0 36px;
     display: flex;
     align-items: center;
-    /* ✅ fond sombre par défaut pour que les textes blancs soient visibles */
     background: rgba(17, 17, 17, 0.92);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: background 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
@@ -90,39 +87,48 @@
 }
 
 /* ================================================================
-      LOGO
-      ================================================================ */
+         LOGO — IMAGE
+         ================================================================ */
 .site-logo {
     display: flex;
-    align-items: baseline;
-    gap: 7px;
+    align-items: center;
     text-decoration: none;
     flex-shrink: 0;
+    padding: 8px 0;
 }
 
-.logo-saf {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 24px;
-    /* ✅ légèrement agrandi */
-    font-weight: 700;
-    color: #b08a7e;
-    /* ✅ rose bien visible sur fond sombre */
-    letter-spacing: 0.06em;
+.logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    transition: height 0.3s ease;
 }
 
-.logo-formation {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    color: #ffffff;
-    /* ✅ blanc pur — très lisible sur fond sombre */
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+/* Logo agrandi quand le header est scrollé */
+.site-header.scrolled .logo-img {
+    height: 52px;
 }
 
 /* ================================================================
-      BOUTON EXPLORER SAF
-      ================================================================ */
+         LOGO dans l'OVERLAY (fond clair #FAFAF7)
+         ================================================================ */
+.overlay-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 0;
+}
+
+.logo-img--overlay {
+    height: 72px;
+    width: auto;
+    filter: none;
+}
+
+/* ================================================================
+         BOUTON EXPLORER SAF
+         ================================================================ */
 .btn-explore {
     display: flex;
     align-items: center;
@@ -133,7 +139,6 @@
     border: none;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    /* ✅ couleur du texte blanche explicite */
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -147,7 +152,6 @@
 .btn-explore:hover {
     background: #b08a7e;
     color: #ffffff;
-    /* ✅ reste blanc au hover */
 }
 
 .hamburger-icon {
@@ -161,20 +165,18 @@
     width: 17px;
     height: 1.5px;
     background: currentColor;
-    /* hérite de color: #ffffff */
     border-radius: 1px;
     transition: background 0.2s;
 }
 
 .btn-explore-label {
-    /* ✅ libellé toujours visible */
     display: inline;
     color: inherit;
 }
 
 /* ================================================================
-      FULLSCREEN OVERLAY
-      ================================================================ */
+         FULLSCREEN OVERLAY
+         ================================================================ */
 .nav-overlay {
     position: fixed;
     inset: 0;
@@ -193,50 +195,32 @@
 }
 
 /* ================================================================
-      OVERLAY HEADER
-      ================================================================ */
+         OVERLAY HEADER
+         ================================================================ */
 .overlay-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    height: 80px;
     padding: 0 0 0 36px;
     border-bottom: 1px solid rgba(17, 17, 17, 0.1);
     flex-shrink: 0;
     background: #FAFAF7;
 }
 
-.overlay-logo {
-    display: flex;
-    align-items: baseline;
-    gap: 7px;
-    text-decoration: none;
-}
-
-.overlay-logo .logo-saf {
-    color: #b08a7e;
-    /* ✅ rose visible sur fond clair */
-}
-
-.overlay-logo .logo-formation {
-    color: #111111;
-    /* ✅ noir sur fond clair */
-}
-
 /* ================================================================
-      BOUTON FERMETURE
-      ================================================================ */
+         BOUTON FERMETURE
+         ================================================================ */
 .btn-close {
     display: flex;
     align-items: center;
     gap: 10px;
-    height: 60px;
+    height: 80px;
     padding: 0 28px;
     background: #111111;
     border: none;
     cursor: pointer;
     color: #ffffff;
-    /* ✅ blanc sur fond noir */
     font-family: 'Inter', sans-serif;
     font-size: 11px;
     font-weight: 600;
@@ -253,7 +237,6 @@
 
 .btn-close svg {
     color: #ffffff;
-    /* ✅ croix bien blanche */
 }
 
 .btn-close-label {
@@ -262,8 +245,8 @@
 }
 
 /* ================================================================
-      OVERLAY BODY — colonnes dynamiques
-      ================================================================ */
+         OVERLAY BODY — colonnes dynamiques
+         ================================================================ */
 .overlay-body {
     flex: 1;
     display: flex;
@@ -271,8 +254,8 @@
 }
 
 /* ================================================================
-      COLONNE 1 — LIENS PRINCIPAUX
-      ================================================================ */
+         COLONNE 1 — LIENS PRINCIPAUX
+         ================================================================ */
 .nav-col-main {
     flex: 0 0 33.333%;
     padding: 48px 52px;
@@ -295,19 +278,16 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(22px, 2.6vw, 36px);
     font-weight: 600;
-    /* ✅ gris moyen lisible sur fond #FAFAF7 */
     color: #888888;
     text-decoration: none;
     padding: 10px 0;
     border-bottom: 1px solid rgba(17, 17, 17, 0.08);
     cursor: pointer;
-    /* Animation d'entrée */
     opacity: 0;
     transform: translateY(12px);
     transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s;
 }
 
-/* Liens visibles quand overlay ouvert */
 .nav-overlay.open .nav-menu-link {
     opacity: 1;
     transform: translateY(0);
@@ -340,10 +320,8 @@
 .nav-menu-link:hover,
 .nav-menu-link.active {
     color: #111111;
-    /* ✅ noir franc au hover */
 }
 
-/* Flèche (liens sans sous-menu) */
 .link-arrow {
     opacity: 0;
     transform: translateX(-6px);
@@ -357,7 +335,6 @@
     transform: translateX(0);
 }
 
-/* Chevron (liens avec sous-menu) */
 .link-chevron {
     flex-shrink: 0;
     color: #b08a7e;
@@ -375,8 +352,8 @@
 }
 
 /* ================================================================
-      COLONNE 2 — SOUS-CATÉGORIES
-      ================================================================ */
+         COLONNE 2 — SOUS-CATÉGORIES
+         ================================================================ */
 .nav-col-sub {
     flex: 0 0 33.333%;
     padding: 48px 52px;
@@ -403,7 +380,6 @@
     pointer-events: all;
 }
 
-/* Eyebrow label */
 .sub-eyebrow {
     font-family: 'Inter', sans-serif;
     font-size: 10px;
@@ -411,7 +387,6 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #b08a7e;
-    /* ✅ rose bien visible sur fond clair */
     margin-bottom: 22px;
     position: sticky;
     top: 0;
@@ -421,7 +396,6 @@
     z-index: 1;
 }
 
-/* Liens sous-pages */
 .nav-sub-link {
     display: flex;
     align-items: center;
@@ -430,7 +404,6 @@
     font-size: 14px;
     font-weight: 400;
     color: #444444;
-    /* ✅ gris foncé très lisible */
     text-decoration: none;
     padding: 14px 0;
     border-bottom: 1px solid rgba(17, 17, 17, 0.07);
@@ -441,7 +414,6 @@
 
 .nav-sub-link:hover {
     color: #111111;
-    /* ✅ noir au hover */
 }
 
 .nav-sub-link.active {
@@ -461,7 +433,6 @@
     display: block;
     font-size: 12px;
     color: #888888;
-    /* ✅ gris moyen lisible */
     line-height: 1.45;
 }
 
@@ -490,7 +461,6 @@
     transform: rotate(180deg);
 }
 
-/* Lien "Voir tout" */
 .sub-voir-tout {
     display: inline-block;
     margin-top: 22px;
@@ -498,7 +468,6 @@
     font-size: 12px;
     font-weight: 500;
     color: #b08a7e;
-    /* ✅ rose lisible */
     text-decoration: none;
     letter-spacing: 0.03em;
     transition: opacity 0.2s;
@@ -509,8 +478,8 @@
 }
 
 /* ================================================================
-      COLONNE 3 — FORMATIONS DÉTAILLÉES
-      ================================================================ */
+         COLONNE 3 — FORMATIONS DÉTAILLÉES
+         ================================================================ */
 .nav-col-detail {
     flex: 0 0 33.333%;
     padding: 48px 52px;
@@ -523,7 +492,6 @@
     pointer-events: none;
     overflow-y: auto;
     background: #F2EFE8;
-    /* ✅ fond légèrement plus chaud pour distinction */
     border-left: 1px solid rgba(17, 17, 17, 0.08);
 }
 
@@ -540,7 +508,6 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #b08a7e;
-    /* ✅ rose bien visible */
     margin-bottom: 22px;
     position: sticky;
     top: 0;
@@ -550,7 +517,6 @@
     z-index: 1;
 }
 
-/* Lien formation détaillée */
 .nav-detail-link {
     display: flex;
     align-items: flex-start;
@@ -559,7 +525,6 @@
     font-size: 13px;
     font-weight: 400;
     color: #444444;
-    /* ✅ gris foncé lisible sur fond crème */
     text-decoration: none;
     padding: 13px 0;
     border-bottom: 1px solid rgba(17, 17, 17, 0.07);
@@ -568,7 +533,6 @@
 
 .nav-detail-link:hover {
     color: #111111;
-    /* ✅ noir au hover */
 }
 
 .detail-dot {
@@ -602,8 +566,8 @@
 }
 
 /* ================================================================
-      OVERLAY FOOTER
-      ================================================================ */
+         OVERLAY FOOTER
+         ================================================================ */
 .overlay-footer {
     display: flex;
     align-items: center;
@@ -619,7 +583,6 @@
     font-size: 13px;
     font-weight: 400;
     color: #555555;
-    /* ✅ lisible sur fond clair */
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -634,9 +597,7 @@
     gap: 9px;
     padding: 11px 22px;
     background: #111111;
-    /* ✅ fond noir pour fort contraste */
     color: #ffffff;
-    /* ✅ texte blanc net */
     font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 500;
@@ -653,15 +614,13 @@
 
 .btn-overlay-cta svg {
     color: #ffffff;
-    /* ✅ flèche blanche */
 }
 
 /* ================================================================
-      PADDING CONTENU PRINCIPAL (sous le header fixe)
-      ================================================================ */
+         PADDING CONTENU PRINCIPAL
+         ================================================================ */
 .content-wrapper {
     padding-top: 94px;
-    /* 34px bandeau + 60px header */
 }
 
 router-outlet+* {
@@ -670,8 +629,8 @@ router-outlet+* {
 }
 
 /* ================================================================
-      RESPONSIVE
-      ================================================================ */
+         RESPONSIVE
+         ================================================================ */
 @media (max-width: 1024px) {
 
     .nav-col-main,
@@ -682,8 +641,6 @@ router-outlet+* {
 }
 
 @media (max-width: 768px) {
-
-    /* Bandeau masqué, header remonté */
     .nda-bandeau {
         display: none;
     }
@@ -700,16 +657,28 @@ router-outlet+* {
 
     .overlay-header {
         padding: 0 0 0 20px;
+        height: 80px;
     }
 
-    /* Boutons compacts */
+    .logo-img {
+        height: 30px;
+    }
+
+    /* Annule l'agrandissement scrolled sur mobile */
+    .site-header.scrolled .logo-img {
+        height: 30px;
+    }
+
+    .logo-img--overlay {
+        height: 60px;
+    }
+
     .btn-explore {
         padding: 0 16px;
     }
 
     .btn-explore-label {
         display: none;
-        /* Masqué sur petit écran, icône burger suffit */
     }
 
     .btn-close {
@@ -720,7 +689,6 @@ router-outlet+* {
         display: none;
     }
 
-    /* Overlay empilé verticalement sur mobile */
     .overlay-body,
     .overlay-body.three-col {
         flex-direction: column;
