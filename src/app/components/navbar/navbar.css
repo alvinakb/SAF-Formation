@@ -1,7 +1,19 @@
+/* ================================================================
+   SAF FORMATION — navbar.css
+   Palette : #b08a7e (rose) | #111111 (noir) | #FAFAF7 (crème)
+   Typo    : Cormorant Garamond (display) + Inter (corps)
+   ================================================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap');
 
-/* ── NDA BANDEAU ─────────────────────────────────────────────── */
+/* ================================================================
+      NDA BANDEAU FIXE
+      ================================================================ */
 .nda-bandeau {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 34px;
     display: flex;
     align-items: center;
@@ -12,26 +24,38 @@
     font-family: 'Inter', sans-serif;
     font-size: 11px;
     letter-spacing: 0.04em;
-    color: #666666;
-    position: relative;
+    color: #555555;
+    /* ✅ plus sombre que #666 pour meilleur contraste */
     z-index: 200;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nda-bandeau.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .nda-bandeau .sep {
-    opacity: 0.4;
+    color: #999999;
+    opacity: 0.6;
 }
 
 .nda-bandeau a {
-    color: #666666;
+    color: #444444;
+    /* ✅ texte lien foncé et lisible */
     text-decoration: none;
+    font-weight: 500;
     transition: color 0.2s;
 }
 
 .nda-bandeau a:hover {
-    color: #C4933A;
+    color: #b08a7e;
 }
 
-/* ── HEADER ──────────────────────────────────────────────────── */
+/* ================================================================
+      HEADER FIXE
+      ================================================================ */
 .site-header {
     position: fixed;
     top: 34px;
@@ -42,16 +66,20 @@
     padding: 0 0 0 36px;
     display: flex;
     align-items: center;
-    background: rgba(17, 17, 17, 0.97);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    /* ✅ fond sombre par défaut pour que les textes blancs soient visibles */
+    background: rgba(17, 17, 17, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .site-header.scrolled {
-  background: linear-gradient(135deg, #5a3f34 0%, #4a3229 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07);
+    top: 0;
+    background: rgba(17, 17, 17, 0.99);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .header-inner {
@@ -61,73 +89,92 @@
     justify-content: space-between;
 }
 
-/* ── LOGO ────────────────────────────────────────────────────── */
+/* ================================================================
+      LOGO
+      ================================================================ */
 .site-logo {
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: 7px;
     text-decoration: none;
     flex-shrink: 0;
 }
 
 .logo-saf {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 22px;
+    font-size: 24px;
+    /* ✅ légèrement agrandi */
     font-weight: 700;
-    color: #C4933A;
-    letter-spacing: 0.05em;
+    color: #b08a7e;
+    /* ✅ rose bien visible sur fond sombre */
+    letter-spacing: 0.06em;
 }
 
 .logo-formation {
     font-family: 'Inter', sans-serif;
     font-size: 10px;
-    font-weight: 500;
+    font-weight: 600;
     color: #ffffff;
-    letter-spacing: 0.16em;
+    /* ✅ blanc pur — très lisible sur fond sombre */
+    letter-spacing: 0.2em;
     text-transform: uppercase;
 }
 
-/* ── BOUTON EXPLORER SAF ─────────────────────────────────────── */
+/* ================================================================
+      BOUTON EXPLORER SAF
+      ================================================================ */
 .btn-explore {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
     height: 60px;
-    padding: 0 24px;
-    background: #111111;
+    padding: 0 28px;
+    background: #1a1a1a;
     border: none;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
+    /* ✅ couleur du texte blanche explicite */
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: background 0.2s, color 0.2s;
     flex-shrink: 0;
 }
 
 .btn-explore:hover {
-    background: #C4933A;
-    color: #111111;
+    background: #b08a7e;
+    color: #ffffff;
+    /* ✅ reste blanc au hover */
 }
 
 .hamburger-icon {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 4.5px;
 }
 
 .hamburger-icon span {
     display: block;
-    width: 16px;
+    width: 17px;
     height: 1.5px;
     background: currentColor;
+    /* hérite de color: #ffffff */
+    border-radius: 1px;
     transition: background 0.2s;
 }
 
-/* ── FULLSCREEN OVERLAY ──────────────────────────────────────── */
+.btn-explore-label {
+    /* ✅ libellé toujours visible */
+    display: inline;
+    color: inherit;
+}
+
+/* ================================================================
+      FULLSCREEN OVERLAY
+      ================================================================ */
 .nav-overlay {
     position: fixed;
     inset: 0;
@@ -137,7 +184,7 @@
     flex-direction: column;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.28s ease;
 }
 
 .nav-overlay.open {
@@ -145,78 +192,98 @@
     pointer-events: all;
 }
 
-/* ── OVERLAY HEADER ──────────────────────────────────────────── */
+/* ================================================================
+      OVERLAY HEADER
+      ================================================================ */
 .overlay-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 60px;
     padding: 0 0 0 36px;
-    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.1);
     flex-shrink: 0;
+    background: #FAFAF7;
 }
 
 .overlay-logo {
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: 7px;
     text-decoration: none;
 }
 
 .overlay-logo .logo-saf {
-    color: #C4933A;
+    color: #b08a7e;
+    /* ✅ rose visible sur fond clair */
 }
 
 .overlay-logo .logo-formation {
     color: #111111;
+    /* ✅ noir sur fond clair */
 }
 
-/* ── BOUTON FERMETURE ────────────────────────────────────────── */
+/* ================================================================
+      BOUTON FERMETURE
+      ================================================================ */
 .btn-close {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
     height: 60px;
-    padding: 0 24px;
+    padding: 0 28px;
     background: #111111;
     border: none;
     cursor: pointer;
     color: #ffffff;
+    /* ✅ blanc sur fond noir */
     font-family: 'Inter', sans-serif;
     font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: background 0.2s, color 0.2s;
     flex-shrink: 0;
 }
 
 .btn-close:hover {
-    background: #C4933A;
-    color: #111111;
+    background: #b08a7e;
+    color: #ffffff;
 }
 
-/* ── OVERLAY BODY — colonnes dynamiques ──────────────────────── */
+.btn-close svg {
+    color: #ffffff;
+    /* ✅ croix bien blanche */
+}
+
+.btn-close-label {
+    display: inline;
+    color: inherit;
+}
+
+/* ================================================================
+      OVERLAY BODY — colonnes dynamiques
+      ================================================================ */
 .overlay-body {
     flex: 1;
     display: flex;
     overflow: hidden;
-    transition: all 0.3s ease;
 }
 
-/* ── COLONNE 1 — LIENS PRINCIPAUX ────────────────────────────── */
+/* ================================================================
+      COLONNE 1 — LIENS PRINCIPAUX
+      ================================================================ */
 .nav-col-main {
     flex: 0 0 33.333%;
-    padding: 40px 48px;
+    padding: 48px 52px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 1px solid rgba(17, 17, 17, 0.07);
+    border-right: 1px solid rgba(17, 17, 17, 0.08);
     overflow-y: auto;
-    transition: flex 0.3s ease;
+    background: #FAFAF7;
 }
 
-/* Quand seulement 2 colonnes actives (col 3 absente), col 1 prend plus d'espace */
 .overlay-body:not(.three-col) .nav-col-main {
     flex: 0 0 50%;
 }
@@ -226,18 +293,21 @@
     align-items: center;
     justify-content: space-between;
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(20px, 2.6vw, 34px);
+    font-size: clamp(22px, 2.6vw, 36px);
     font-weight: 600;
-    color: #aaaaaa;
+    /* ✅ gris moyen lisible sur fond #FAFAF7 */
+    color: #888888;
     text-decoration: none;
-    padding: 9px 0;
-    border-bottom: 1px solid rgba(17, 17, 17, 0.07);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
     cursor: pointer;
+    /* Animation d'entrée */
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.35s ease, transform 0.35s ease, color 0.18s;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s;
 }
 
+/* Liens visibles quand overlay ouvert */
 .nav-overlay.open .nav-menu-link {
     opacity: 1;
     transform: translateY(0);
@@ -269,16 +339,17 @@
 
 .nav-menu-link:hover,
 .nav-menu-link.active {
-    color: #C4933A;
+    color: #111111;
+    /* ✅ noir franc au hover */
 }
 
 /* Flèche (liens sans sous-menu) */
 .link-arrow {
     opacity: 0;
     transform: translateX(-6px);
-    transition: opacity 0.18s, transform 0.18s;
+    transition: opacity 0.2s, transform 0.2s;
     flex-shrink: 0;
-    color: #C4933A;
+    color: #b08a7e;
 }
 
 .nav-menu-link:hover .link-arrow {
@@ -289,9 +360,9 @@
 /* Chevron (liens avec sous-menu) */
 .link-chevron {
     flex-shrink: 0;
-    color: #C4933A;
-    opacity: 0.4;
-    transition: transform 0.25s ease, opacity 0.18s;
+    color: #b08a7e;
+    opacity: 0.5;
+    transition: transform 0.25s ease, opacity 0.2s;
 }
 
 .link-chevron.rotated {
@@ -303,23 +374,24 @@
     opacity: 1;
 }
 
-/* ── COLONNE 2 — SOUS-CATÉGORIES ─────────────────────────────── */
+/* ================================================================
+      COLONNE 2 — SOUS-CATÉGORIES
+      ================================================================ */
 .nav-col-sub {
     flex: 0 0 33.333%;
-    padding: 40px 48px;
+    padding: 48px 52px;
     display: flex;
     flex-direction: column;
-    /* ✅ CORRIGÉ : center → flex-start pour éviter le débordement en haut */
     justify-content: flex-start;
     opacity: 0;
-    transform: translateX(16px);
-    transition: opacity 0.28s ease, transform 0.28s ease, flex 0.3s ease;
+    transform: translateX(18px);
+    transition: opacity 0.28s ease, transform 0.28s ease;
     pointer-events: none;
     overflow-y: auto;
-    border-right: 1px solid rgba(17, 17, 17, 0.07);
+    border-right: 1px solid rgba(17, 17, 17, 0.08);
+    background: #FAFAF7;
 }
 
-/* Quand col 3 absente, col 2 prend 50% */
 .overlay-body:not(.three-col) .nav-col-sub {
     flex: 0 0 50%;
     border-right: none;
@@ -331,21 +403,21 @@
     pointer-events: all;
 }
 
-/* Eyebrow */
+/* Eyebrow label */
 .sub-eyebrow {
     font-family: 'Inter', sans-serif;
     font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #C4933A;
-    margin-bottom: 20px;
-    /* ✅ Collé en haut lors du scroll */
+    color: #b08a7e;
+    /* ✅ rose bien visible sur fond clair */
+    margin-bottom: 22px;
     position: sticky;
     top: 0;
     background: #FAFAF7;
     padding-top: 4px;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
     z-index: 1;
 }
 
@@ -357,23 +429,23 @@
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #555555;
+    color: #444444;
+    /* ✅ gris foncé très lisible */
     text-decoration: none;
     padding: 14px 0;
     border-bottom: 1px solid rgba(17, 17, 17, 0.07);
-    transition: color 0.18s, background 0.18s;
+    transition: color 0.2s;
     gap: 16px;
     cursor: pointer;
-    border-radius: 2px;
 }
 
-.nav-sub-link:hover,
-.nav-sub-link.active {
+.nav-sub-link:hover {
     color: #111111;
+    /* ✅ noir au hover */
 }
 
 .nav-sub-link.active {
-    color: #C4933A;
+    color: #b08a7e;
 }
 
 .sub-label {
@@ -381,22 +453,24 @@
     font-size: 15px;
     font-weight: 500;
     color: inherit;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
+    line-height: 1.3;
 }
 
 .sub-desc {
     display: block;
     font-size: 12px;
-    color: #999999;
-    line-height: 1.4;
+    color: #888888;
+    /* ✅ gris moyen lisible */
+    line-height: 1.45;
 }
 
 .sub-arrow {
     opacity: 0;
     transform: translateX(-4px);
-    transition: opacity 0.18s, transform 0.18s;
+    transition: opacity 0.2s, transform 0.2s;
     flex-shrink: 0;
-    color: #C4933A;
+    color: #b08a7e;
 }
 
 .nav-sub-link:hover .sub-arrow {
@@ -404,10 +478,11 @@
     transform: translateX(0);
 }
 
-/* Chevron sous-catégorie */
 .sub-chevron {
-    opacity: 0.4;
-    transition: transform 0.25s ease, opacity 0.18s;
+    flex-shrink: 0;
+    color: #b08a7e;
+    opacity: 0.45;
+    transition: transform 0.25s ease, opacity 0.2s;
 }
 
 .nav-sub-link.active .sub-chevron {
@@ -415,40 +490,41 @@
     transform: rotate(180deg);
 }
 
-/* Voir tout */
+/* Lien "Voir tout" */
 .sub-voir-tout {
     display: inline-block;
     margin-top: 22px;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 500;
-    color: #C4933A;
+    color: #b08a7e;
+    /* ✅ rose lisible */
     text-decoration: none;
     letter-spacing: 0.03em;
-    transition: opacity 0.18s;
+    transition: opacity 0.2s;
 }
 
 .sub-voir-tout:hover {
-    opacity: 0.7;
+    opacity: 0.65;
 }
 
-/* ── COLONNE 3 — FORMATIONS DÉTAILLÉES ───────────────────────── */
+/* ================================================================
+      COLONNE 3 — FORMATIONS DÉTAILLÉES
+      ================================================================ */
 .nav-col-detail {
     flex: 0 0 33.333%;
-    padding: 40px 48px;
+    padding: 48px 52px;
     display: flex;
     flex-direction: column;
-    /* ✅ CORRECTION PRINCIPALE : center → flex-start
-       justify-content: center centrait la liste verticalement,
-       ce qui faisait déborder et cachait le premier item en haut */
     justify-content: flex-start;
     opacity: 0;
-    transform: translateX(16px);
+    transform: translateX(18px);
     transition: opacity 0.28s ease, transform 0.28s ease;
     pointer-events: none;
     overflow-y: auto;
-    background: #F4F2EC;
-    border-left: 1px solid rgba(17, 17, 17, 0.07);
+    background: #F2EFE8;
+    /* ✅ fond légèrement plus chaud pour distinction */
+    border-left: 1px solid rgba(17, 17, 17, 0.08);
 }
 
 .nav-col-detail.visible {
@@ -458,15 +534,19 @@
 }
 
 .detail-eyebrow {
+    font-family: 'Inter', sans-serif;
     font-size: 10px;
-    letter-spacing: 0.18em;
-    margin-bottom: 20px;
-    /* ✅ Collé en haut lors du scroll */
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #b08a7e;
+    /* ✅ rose bien visible */
+    margin-bottom: 22px;
     position: sticky;
     top: 0;
-    background: #F4F2EC;
+    background: #F2EFE8;
     padding-top: 4px;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
     z-index: 1;
 }
 
@@ -478,27 +558,28 @@
     font-family: 'Inter', sans-serif;
     font-size: 13px;
     font-weight: 400;
-    color: #555555;
+    color: #444444;
+    /* ✅ gris foncé lisible sur fond crème */
     text-decoration: none;
-    padding: 12px 0;
+    padding: 13px 0;
     border-bottom: 1px solid rgba(17, 17, 17, 0.07);
-    transition: color 0.18s;
-    position: relative;
+    transition: color 0.2s;
 }
 
 .nav-detail-link:hover {
     color: #111111;
+    /* ✅ noir au hover */
 }
 
 .detail-dot {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #C4933A;
+    background: #b08a7e;
     flex-shrink: 0;
-    margin-top: 6px;
-    opacity: 0.5;
-    transition: opacity 0.18s;
+    margin-top: 5px;
+    opacity: 0.55;
+    transition: opacity 0.2s;
 }
 
 .nav-detail-link:hover .detail-dot {
@@ -509,95 +590,141 @@
     margin-left: auto;
     flex-shrink: 0;
     margin-top: 2px;
+    color: #b08a7e;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
 }
 
-/* ── OVERLAY FOOTER ──────────────────────────────────────────── */
+.nav-detail-link:hover .detail-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ================================================================
+      OVERLAY FOOTER
+      ================================================================ */
 .overlay-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 18px 56px 32px;
-    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    border-top: 1px solid rgba(17, 17, 17, 0.09);
     flex-shrink: 0;
+    background: #FAFAF7;
 }
 
 .overlay-email {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: #666666;
+    font-size: 13px;
+    font-weight: 400;
+    color: #555555;
+    /* ✅ lisible sur fond clair */
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .overlay-email:hover {
-    color: #C4933A;
+    color: #b08a7e;
 }
 
 .btn-overlay-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: #C4933A;
+    gap: 9px;
+    padding: 11px 22px;
+    background: #111111;
+    /* ✅ fond noir pour fort contraste */
     color: #ffffff;
+    /* ✅ texte blanc net */
     font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-decoration: none;
     transition: background 0.2s, transform 0.2s;
 }
 
 .btn-overlay-cta:hover {
-    background: #A87828;
+    background: #b08a7e;
+    color: #ffffff;
     transform: translateY(-1px);
 }
 
-/* ── RESPONSIVE ──────────────────────────────────────────────── */
+.btn-overlay-cta svg {
+    color: #ffffff;
+    /* ✅ flèche blanche */
+}
+
+/* ================================================================
+      PADDING CONTENU PRINCIPAL (sous le header fixe)
+      ================================================================ */
+.content-wrapper {
+    padding-top: 94px;
+    /* 34px bandeau + 60px header */
+}
+
+router-outlet+* {
+    display: block;
+    padding-top: 94px;
+}
+
+/* ================================================================
+      RESPONSIVE
+      ================================================================ */
 @media (max-width: 1024px) {
 
     .nav-col-main,
     .nav-col-sub,
     .nav-col-detail {
-        padding: 32px 36px;
+        padding: 36px 36px;
     }
 }
 
 @media (max-width: 768px) {
+
+    /* Bandeau masqué, header remonté */
+    .nda-bandeau {
+        display: none;
+    }
+
     .site-header {
+        top: 0;
         padding: 0 0 0 20px;
+    }
+
+    .content-wrapper,
+    router-outlet+* {
+        padding-top: 60px;
     }
 
     .overlay-header {
         padding: 0 0 0 20px;
     }
 
+    /* Boutons compacts */
     .btn-explore {
         padding: 0 16px;
-        font-size: 10px;
     }
 
-    .btn-explore .btn-explore-label {
+    .btn-explore-label {
         display: none;
+        /* Masqué sur petit écran, icône burger suffit */
     }
 
     .btn-close {
         padding: 0 16px;
-        font-size: 10px;
     }
 
-    .btn-close .btn-close-label {
+    .btn-close-label {
         display: none;
     }
 
-    /* Sur mobile : empilement vertical */
-    .overlay-body {
-        flex-direction: column;
-        overflow-y: auto;
-    }
-
+    /* Overlay empilé verticalement sur mobile */
+    .overlay-body,
     .overlay-body.three-col {
         flex-direction: column;
+        overflow-y: auto;
     }
 
     .nav-col-main,
@@ -605,7 +732,7 @@
         flex: 0 0 auto;
         padding: 28px 24px 16px;
         border-right: none;
-        border-bottom: 1px solid rgba(17, 17, 17, 0.07);
+        border-bottom: 1px solid rgba(17, 17, 17, 0.08);
         justify-content: flex-start;
     }
 
@@ -615,14 +742,13 @@
         padding: 20px 24px;
         transform: none;
         border-right: none;
-        border-bottom: 1px solid rgba(17, 17, 17, 0.07);
+        border-bottom: 1px solid rgba(17, 17, 17, 0.08);
     }
 
     .nav-col-sub.visible {
         transform: none;
     }
 
-    /* ✅ sticky eyebrow fond adapté mobile */
     .sub-eyebrow {
         background: #FAFAF7;
     }
@@ -631,7 +757,6 @@
         flex: 0 0 auto;
         padding: 20px 24px 28px;
         transform: none;
-        background: #F4F2EC;
     }
 
     .nav-col-detail.visible {
@@ -639,12 +764,12 @@
     }
 
     .detail-eyebrow {
-        background: #F4F2EC;
+        background: #F2EFE8;
     }
 
     .nav-menu-link {
-        font-size: clamp(18px, 6vw, 26px);
-        padding: 8px 0;
+        font-size: clamp(20px, 6vw, 28px);
+        padding: 9px 0;
     }
 
     .overlay-footer {

@@ -1,1 +1,291 @@
-<p>marketing-digital works!</p>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — MARKETING DIGITAL ET RÉSEAUX SOCIAUX
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ── HERO ── -->
+<section class="hero" #heroSection>
+
+    <div class="hero-bg">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grain"></div>
+    </div>
+
+    <div class="hero-rail">
+        <div class="rail-line" #railLine></div>
+        <span class="rail-label">SAF · 2026</span>
+    </div>
+
+    <div class="hero-body">
+
+        <div class="hero-eyebrow" #heroEyebrow>
+            <span class="eyebrow-dot"></span>
+            <span>Action de formation — Éligible CPF</span>
+        </div>
+
+        <h1 class="hero-headline">
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner">Marketing digital</span>
+            </span>
+            <span class="line-wrap" #heroLine2>
+                <span class="line-inner">et réseaux</span>
+            </span>
+            <span class="line-wrap" #heroLine3>
+                <span class="line-inner accent-gold">sociaux.</span>
+            </span>
+        </h1>
+
+        <p class="hero-sub" #heroSub>
+            {{ formation.accroche }}
+        </p>
+
+        <div class="hero-pills" #heroPills>
+            <span class="pill pill-cpf">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Éligible CPF
+            </span>
+            <span class="pill pill-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                14 heures · 2 jours
+            </span>
+            <span class="pill pill-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                </svg>
+                Présentiel ou distanciel
+            </span>
+        </div>
+
+        <div class="hero-actions" #heroActions>
+            <a routerLink="/contact" class="cta-primary">
+                <span>S'inscrire à cette formation</span>
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                    <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                    <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </a>
+            <a href="#programme" class="cta-ghost">Voir le programme →</a>
+        </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" #heroScroll>
+        <div class="scroll-track">
+            <div class="scroll-thumb"></div>
+        </div>
+        <span>Défiler</span>
+    </div>
+
+</section>
+
+<!-- ── STATS BAR ── -->
+<div class="stats-bar" #statsBar>
+    <div class="stats-inner">
+        <div class="stat-item" *ngFor="let s of stats; let i = index" [attr.data-i]="i">
+            <span class="stat-value">{{ s.value }}</span>
+            <span class="stat-label">{{ s.label }}</span>
+        </div>
+    </div>
+</div>
+
+<!-- ── PAGE LAYOUT ── -->
+<div class="page-layout">
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="page-main">
+
+        <!-- À propos -->
+        <div class="section-block reveal">
+            <p class="section-eyebrow">À propos</p>
+            <h2 class="section-title">
+                Passez d'une présence <em>subie à une stratégie choisie.</em>
+            </h2>
+            <p class="section-lead">{{ formation.accroche }}</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Objectifs pédagogiques</p>
+            <h2 class="section-title reveal">Ce que vous <em>allez maîtriser.</em></h2>
+            <ul class="objectives-list reveal-stagger">
+                <li class="obj-item" *ngFor="let obj of formation.objectifs; let i = index">
+                    <span class="obj-num">0{{ i + 1 }}</span>
+                    <span class="obj-text">{{ obj }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Programme -->
+        <div class="section-block" id="programme">
+            <p class="section-eyebrow reveal">Programme</p>
+            <h2 class="section-title reveal">
+                2 jours pour <em>structurer votre présence digitale.</em>
+            </h2>
+            <div class="programme-timeline reveal">
+                <div class="jour-item" *ngFor="let jour of formation.programme">
+                    <span class="jour-tag">{{ jour.tag }}</span>
+                    <h3 class="jour-title">{{ jour.title }}</h3>
+                    <ul class="jour-list">
+                        <li *ngFor="let item of jour.desc">{{ item }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Public & Prérequis -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Public & prérequis</p>
+            <h2 class="section-title reveal">Cette formation est <em>faite pour vous.</em></h2>
+            <div class="info-grid reveal-stagger">
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Public visé</p>
+                    <p class="info-card-value">{{ formation.publicVise }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Prérequis</p>
+                    <p class="info-card-value">{{ formation.prerequis }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Durée</p>
+                    <p class="info-card-value">{{ formation.duree }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Modalité</p>
+                    <p class="info-card-value">Présentiel ou distanciel. Nous nous adaptons à vos contraintes.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Avantages -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Les points forts</p>
+            <h2 class="section-title reveal">Pourquoi <em>choisir cette formation.</em></h2>
+            <div class="avantages-grid reveal-stagger">
+                <div class="avantage-item" *ngFor="let avantage of formation.avantages">
+                    <span class="avantage-icon">✓</span>
+                    <span>{{ avantage }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Évaluation -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Évaluation</p>
+            <h2 class="section-title reveal">Comment vos acquis <em>sont mesurés.</em></h2>
+            <ul class="eval-list reveal">
+                <li *ngFor="let e of formation.evaluation">{{ e }}</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar" #sidebarEl>
+
+        <!-- Financement card -->
+        <div class="sidebar-card">
+            <div class="sidebar-card-header">
+                <p class="sidebar-card-header-label">Financement</p>
+                <p class="sidebar-card-header-title">Cette formation est prise en charge.</p>
+            </div>
+            <div class="sidebar-card-body">
+                <ul class="funding-list">
+                    <li class="funding-item" *ngFor="let f of formation.financement">
+                        <span class="funding-dot"></span>
+                        {{ f }}
+                    </li>
+                </ul>
+                <a routerLink="/contact" class="sidebar-cta">
+                    S'inscrire maintenant
+                    <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                        <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </a>
+                <a routerLink="/contact" class="sidebar-cta-outline">Demander un devis</a>
+            </div>
+        </div>
+
+        <!-- Contact card -->
+        <div class="contact-card">
+            <div class="contact-avatar">S</div>
+            <p class="contact-name">Safa</p>
+            <p class="contact-role">Directrice pédagogique</p>
+            <a routerLink="/la-dirigeante" class="contact-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l.61-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Parler à la dirigeante
+            </a>
+        </div>
+
+    </aside>
+
+</div>
+
+<!-- ── AUTRES FORMATIONS ── -->
+<section class="other-formations">
+    <div class="other-inner">
+
+        <div class="other-header">
+            <div>
+                <p class="other-eyebrow">À découvrir aussi</p>
+                <h2 class="other-title">Nos autres <em>formations.</em></h2>
+            </div>
+            <a routerLink="/formations" class="other-link">Voir tout le catalogue →</a>
+        </div>
+
+        <div class="other-grid">
+            <a class="other-card" *ngFor="let f of autresFormations; let i = index">
+                <div class="other-card-num">0{{ i + 1 }}</div>
+                <h3 class="other-card-title">{{ f.title }}</h3>
+                <p class="other-card-meta">{{ f.meta }}</p>
+                <div class="other-card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>

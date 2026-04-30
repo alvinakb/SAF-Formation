@@ -7,8 +7,11 @@ import {
   ElementRef,
   PLATFORM_ID,
   Inject,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 /* ── Interfaces ── */
 interface Stat {
@@ -20,6 +23,7 @@ interface ProgrammeDay {
   tag: string;
   title: string;
   desc: string;
+  modules: string[];
 }
 
 interface Formation {
@@ -42,6 +46,8 @@ interface AutreFormation {
 
 @Component({
   selector: 'app-strategies-communication',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './strategies-communication.html',
   styleUrls: ['./strategies-communication.css'],
 })
@@ -60,157 +66,235 @@ export class StrategiesCommunication
   @ViewChild('railLine') railLine!: ElementRef<HTMLElement>;
   @ViewChild('statsBar') statsBar!: ElementRef<HTMLElement>;
   @ViewChild('sidebarEl') sidebarEl!: ElementRef<HTMLElement>;
+  @ViewChild('objSlider') objSlider!: ElementRef<HTMLElement>;
+  @ViewChild('progTrack') progTrack!: ElementRef<HTMLElement>;
 
-  /* ── Observer ── */
+  /* ── Etat slider objectifs ── */
+  activeObjSlide = 0;
+  private objAutoplay: ReturnType<typeof setInterval> | null = null;
+
+  /* ── Etat carousel programme ── */
+  activeDay = 0;
+
+  /* ── IntersectionObserver ── */
   private scrollObserver!: IntersectionObserver;
 
   /* ════════════════════════════════════════
-     DONNÉES — STATS BAR
+     DONNEES - STATS BAR
   ════════════════════════════════════════ */
   stats: Stat[] = [
     { value: "21h", label: "de formation" },
     { value: "3", label: "jours intensifs" },
-    { value: "100%", label: "finançable" },
-    { value: "Niv. 7", label: "expertise pédagogique" },
+    { value: "100%", label: "financable" },
+    { value: "Niv. 7", label: "expertise pedagogique" },
   ];
 
   /* ════════════════════════════════════════
-     DONNÉES — FORMATION
+     DONNEES - FORMATION
   ════════════════════════════════════════ */
   formation: Formation = {
 
-    titre: "Maîtrise des stratégies de communication",
+    titre: "Maitrise des strategies de communication",
 
     accroche:
-      "Bien communiquer, ce n'est pas parler davantage. "
-      + "C'est choisir le bon message, le bon canal, au bon moment. "
-      + "Cette formation donne aux professionnels les outils "
-      + "pour construire une communication structurée, cohérente et percutante.",
+      "Bien communiquer, ce n\u2019est pas parler davantage. " +
+      "C\u2019est choisir le bon message, le bon canal, au bon moment. " +
+      "Cette formation donne aux professionnels les outils " +
+      "pour construire une communication structuree, coherente et percutante.",
 
     objectifs: [
-      "Identifier les composantes d'une stratégie de communication efficace.",
-      "Maîtriser les outils de communication interne et externe.",
-      "Adapter son discours en fonction de l'interlocuteur et du contexte.",
-      "Construire et défendre un message clair en situation professionnelle.",
-      "Utiliser les supports de communication adaptés à chaque objectif.",
+      "Identifier les composantes d\u2019une strategie de communication efficace.",
+      "Maitriser les outils de communication interne et externe.",
+      "Adapter son discours en fonction de l\u2019interlocuteur et du contexte.",
+      "Construire et defendre un message clair en situation professionnelle.",
+      "Utiliser les supports de communication adaptes a chaque objectif.",
     ],
 
     publicVise:
-      "Tout professionnel souhaitant améliorer sa communication en milieu de travail : "
-      + "managers, chargés de communication, assistants, commerciaux, indépendants.",
+      "Tout professionnel souhaitant ameliorer sa communication en milieu de travail : " +
+      "managers, charges de communication, assistants, commerciaux, independants.",
 
     prerequis:
-      "Aucun prérequis spécifique. "
-      + "Une expérience professionnelle de 6 mois minimum est conseillée.",
+      "Aucun prerequis specifique. " +
+      "Une experience professionnelle de 6 mois minimum est conseillee.",
 
-    duree: "21 heures (3 jours) — Présentiel ou distanciel",
+    duree: "21 heures (3 jours) \u2014 Presentiel ou distanciel",
 
     programme: [
       {
         tag: "Jour 1",
         title: "Fondamentaux de la communication professionnelle",
         desc:
-          "Modèles de communication, communication verbale et non verbale, écoute active. "
-          + "Comprendre les mécanismes de base pour bâtir des échanges efficaces et lisibles.",
+          "Modeles de communication, communication verbale et non verbale, ecoute active. " +
+          "Comprendre les mecanismes de base pour batir des echanges efficaces et lisibles.",
+        modules: [
+          "Modeles de communication",
+          "Communication non verbale",
+          "Ecoute active",
+          "Gestion des biais",
+        ],
       },
       {
         tag: "Jour 2",
-        title: "Stratégie et canaux",
+        title: "Strategie et canaux de communication",
         desc:
-          "Définir une stratégie, sélectionner les outils, rédiger pour être lu, "
-          + "maîtriser l'email professionnel et la prise de parole en public.",
+          "Definir une strategie, selectionner les outils, rediger pour etre lu, " +
+          "maitriser l\u2019email professionnel et la prise de parole en public.",
+        modules: [
+          "Plan de communication",
+          "Email & messagerie",
+          "Prise de parole",
+          "Outils digitaux",
+        ],
       },
       {
         tag: "Jour 3",
         title: "Mises en situation et cas pratiques",
         desc:
-          "Présentations, réunions, gestion de situations conflictuelles. "
-          + "Consolidation des acquis sur des cas concrets issus du terrain.",
+          "Presentations, reunions, gestion de situations conflictuelles. " +
+          "Consolidation des acquis sur des cas concrets issus du terrain.",
+        modules: [
+          "Jeux de role",
+          "Gestion du conflit",
+          "Feedback personnalise",
+          "Plan d\u2019action",
+        ],
       },
     ],
 
     evaluation: [
       "Exercices pratiques tout au long de la formation",
-      "Mise en situation finale avec feedback personnalisé",
-      "Questionnaire d'évaluation des acquis en fin de parcours",
+      "Mise en situation finale avec feedback personnalise",
+      "Questionnaire d\u2019evaluation des acquis en fin de parcours",
     ],
 
     financement: [
       "CPF (Compte Personnel de Formation)",
       "OPCO",
-      "Plan de développement des compétences",
+      "Plan de developpement des competences",
     ],
   };
 
   /* ════════════════════════════════════════
-     DONNÉES — AUTRES FORMATIONS
+     DONNEES - AUTRES FORMATIONS
   ════════════════════════════════════════ */
   autresFormations: AutreFormation[] = [
     {
-      title: "Bilan de compétences",
-      meta: "VAE · 24h · CPF",
-      route: "/formations/bilan-de-competences",
+      title: "Strategies des techniques de vente",
+      meta: "Action de formation \u00b7 21h \u00b7 CPF",
+      route: "/formations/techniques-vente",
     },
     {
-      title: "Management et leadership",
-      meta: "Action de formation · 14h · OPCO",
-      route: "/formations/management-leadership",
+      title: "Bureautique et outils numeriques",
+      meta: "Action de formation \u00b7 14-28h \u00b7 TOSA",
+      route: "/formations/bureautique-outils-numeriques",
     },
     {
       title: "Accompagnement VAE",
-      meta: "VAE · Sur mesure · CPF",
-      route: "/formations/accompagnement-vae",
+      meta: "VAE \u00b7 Sur mesure \u00b7 CPF",
+      route: "/formations/vae",
     },
   ];
 
   /* ════════════════════════════════════════
      CONSTRUCTOR
   ════════════════════════════════════════ */
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef,
+  ) { }
 
   /* ════════════════════════════════════════
-     LIFECYCLE — OnInit
+     LIFECYCLE - OnInit
   ════════════════════════════════════════ */
-  ngOnInit(): void {
-    // Données initialisées inline.
-    // Remplacez par un service HTTP si les données sont dynamiques.
-  }
+  ngOnInit(): void { }
 
   /* ════════════════════════════════════════
-     LIFECYCLE — AfterViewInit
+     LIFECYCLE - AfterViewInit
   ════════════════════════════════════════ */
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
     this.initScrollReveal();
+    this.startObjAutoplay();
   }
 
   /* ════════════════════════════════════════
-     SCROLL REVEAL — IntersectionObserver
+     LIFECYCLE - OnDestroy
+  ════════════════════════════════════════ */
+  ngOnDestroy(): void {
+    this.scrollObserver?.disconnect();
+    this.stopObjAutoplay();
+  }
+
+  /* ════════════════════════════════════════
+     SCROLL REVEAL
   ════════════════════════════════════════ */
   private initScrollReveal(): void {
-    const targets = document.querySelectorAll<HTMLElement>('.reveal, .reveal-stagger');
+    const targets = document.querySelectorAll<HTMLElement>(".reveal, .reveal-stagger");
 
     this.scrollObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
             this.scrollObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" },
     );
 
     targets.forEach((el) => this.scrollObserver.observe(el));
   }
 
   /* ════════════════════════════════════════
-     LIFECYCLE — OnDestroy
+     SLIDER OBJECTIFS
   ════════════════════════════════════════ */
-  ngOnDestroy(): void {
-    if (this.scrollObserver) {
-      this.scrollObserver.disconnect();
+
+  prevObj(): void {
+    if (this.activeObjSlide > 0) {
+      this.activeObjSlide--;
+      this.resetAutoplay();
     }
+  }
+
+  nextObj(): void {
+    if (this.activeObjSlide < this.formation.objectifs.length - 1) {
+      this.activeObjSlide++;
+      this.resetAutoplay();
+    }
+  }
+
+  goToObj(index: number): void {
+    this.activeObjSlide = index;
+    this.resetAutoplay();
+  }
+
+  private startObjAutoplay(): void {
+    this.objAutoplay = setInterval(() => {
+      this.activeObjSlide =
+        (this.activeObjSlide + 1) % this.formation.objectifs.length;
+      this.cdr.markForCheck();
+    }, 5000);
+  }
+
+  private stopObjAutoplay(): void {
+    if (this.objAutoplay !== null) {
+      clearInterval(this.objAutoplay);
+      this.objAutoplay = null;
+    }
+  }
+
+  private resetAutoplay(): void {
+    this.stopObjAutoplay();
+    this.startObjAutoplay();
+  }
+
+  /* ════════════════════════════════════════
+     CAROUSEL PROGRAMME
+  ════════════════════════════════════════ */
+
+  setActiveDay(index: number): void {
+    this.activeDay = this.activeDay === index ? -1 : index;
   }
 }

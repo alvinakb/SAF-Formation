@@ -10,6 +10,11 @@ import { StrategiesCommunication } from './pages/formations/strategies-communica
 import { TechniquesVente } from './pages/formations/techniques-vente/techniques-vente';
 import { Vae } from './pages/formations/vae/vae';
 import { VocabulaireProfessionnel } from './pages/formations/vocabulaire-professionnel/vocabulaire-professionnel';
+import { Dirigeante } from './pages/dirigeante/dirigeante';
+import { Contact } from './pages/contact/contact';
+import { NosValeurs } from './pages/nos-valeurs/nos-valeurs';
+import { Faq } from './pages/faq/faq';
+import { Financement } from './pages/financement/financement';
 
 export const routes: Routes = [
     // Accueil
@@ -26,6 +31,11 @@ export const routes: Routes = [
     { path: 'formations/accompagnement-qualiopi', component: AccompagnementQualiopi },
     { path: 'formations/vae', component: Vae },
     { path: 'formations/bilan-competences', component: BilanCompetences },
+    { path: 'la-dirigeante', component: Dirigeante },
+    { path: 'contact', component: Contact },
+    { path: 'nos-valeurs', component: NosValeurs },
+    { path: 'faq', component: Faq },
+    { path: 'financement', component: Financement },
 
     // Redirection pour les routes non trouvées
     { path: '**', redirectTo: '' }

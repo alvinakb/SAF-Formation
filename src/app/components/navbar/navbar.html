@@ -1,26 +1,25 @@
-<!-- ── BANDEAU NDA ──────────────────────────────────────────── -->
+<!-- ── BANDEAU NDA FIXE ──────────────────────────────────────────── -->
 <div class="nda-bandeau" [class.hidden]="scrolled">
     <span>NDA XXXXXXXXX</span>
     <span class="sep">│</span>
     <a href="mailto:contact@saf-formation.fr">contact&#64;saf-formation.fr</a>
 </div>
 
-<!-- ── HEADER ───────────────────────────────────────────────── -->
+<!-- ── HEADER FIXE ───────────────────────────────────────────────── -->
 <header class="site-header" [class.scrolled]="scrolled" role="banner">
     <div class="header-inner">
-
-    <!-- Logo -->
-    <a class="site-logo" routerLink="/" aria-label="SAF Formation — Accueil">
-     <img src="LOGO SAF Officiel.png" height="70%" width="70%" alt="Qualiopi - Certification qualité" class="footer-qualiopi" />
-    </a>
-
-        <!-- Hamburger -->
-        <button class="hamburger" (click)="openMenu()" aria-label="Ouvrir le menu" [attr.aria-expanded]="menuOpen">
-            <span></span>
-            <span></span>
-            <span></span>
+        <a class="site-logo" routerLink="/" aria-label="SAF Formation — Accueil">
+            <span class="logo-saf">SAF</span>
+            <span class="logo-formation">Formation</span>
+        </a>
+        <button class="btn-explore" (click)="openMenu()" aria-label="Ouvrir le menu" [attr.aria-expanded]="menuOpen">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span class="btn-explore-label">Explorer SAF</span>
         </button>
-
     </div>
 </header>
 

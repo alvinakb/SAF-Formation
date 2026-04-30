@@ -1,0 +1,254 @@
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — CONTACT
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ── HERO ── -->
+<section class="hero" #heroSection>
+
+    <div class="hero-bg">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grain"></div>
+    </div>
+
+    <div class="hero-rail">
+        <div class="rail-line" #railLine></div>
+        <span class="rail-label">SAF · 2026</span>
+    </div>
+
+    <div class="hero-body">
+
+        <h1 class="hero-headline">
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner">Parlons de votre</span>
+            </span>
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner accent-gold">projet de formation.</span>
+            </span>
+        </h1>
+
+        <p class="hero-sub" #heroSub>
+            Un entretien d'orientation gratuit vous permet de clarifier votre situation, d'identifier le bon dispositif
+            de financement et de choisir le programme adapté. Sans engagement.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ── CONTACT SECTION ── -->
+<div class="contact-section">
+    <div class="contact-container">
+
+        <!-- Formulaire -->
+        <div class="contact-form-wrapper reveal">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prenom">Prénom *</label>
+                        <input type="text" id="prenom" formControlName="prenom" placeholder="Votre prénom"
+                            [class.is-invalid]="f['prenom'].invalid && f['prenom'].touched">
+                        <div class="error-message" *ngIf="f['prenom'].invalid && f['prenom'].touched">
+                            Le prénom est requis (minimum 2 caractères)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nom">Nom *</label>
+                        <input type="text" id="nom" formControlName="nom" placeholder="Votre nom"
+                            [class.is-invalid]="f['nom'].invalid && f['nom'].touched">
+                        <div class="error-message" *ngIf="f['nom'].invalid && f['nom'].touched">
+                            Le nom est requis (minimum 2 caractères)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" formControlName="email" placeholder="exemple@saf-formation.fr"
+                            [class.is-invalid]="f['email'].invalid && f['email'].touched">
+                        <div class="error-message" *ngIf="f['email'].invalid && f['email'].touched">
+                            Veuillez saisir un email valide
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone">Téléphone *</label>
+                        <input type="tel" id="telephone" formControlName="telephone" placeholder="06 12 34 56 78"
+                            [class.is-invalid]="f['telephone'].invalid && f['telephone'].touched">
+                        <div class="error-message" *ngIf="f['telephone'].invalid && f['telephone'].touched">
+                            Veuillez saisir un numéro de téléphone valide
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="situation">Votre situation *</label>
+                        <select id="situation" formControlName="situation"
+                            [class.is-invalid]="f['situation'].invalid && f['situation'].touched">
+                            <option value="" disabled>Sélectionnez votre situation</option>
+                            <option *ngFor="let sit of situations" [value]="sit">{{ sit }}</option>
+                        </select>
+                        <div class="error-message" *ngIf="f['situation'].invalid && f['situation'].touched">
+                            Veuillez sélectionner votre situation
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formation">Formation souhaitée</label>
+                        <select id="formation" formControlName="formation">
+                            <option *ngFor="let f of formations" [value]="f.value">{{ f.label }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="message">Votre message *</label>
+                    <textarea id="message" formControlName="message" rows="5"
+                        placeholder="Décrivez-nous votre projet, vos besoins ou vos questions..."
+                        [class.is-invalid]="f['message'].invalid && f['message'].touched"></textarea>
+                    <div class="error-message" *ngIf="f['message'].invalid && f['message'].touched">
+                        Veuillez saisir un message (minimum 20 caractères)
+                    </div>
+                </div>
+
+                <div class="form-group rgpd-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" formControlName="rgpd">
+                        <span class="checkbox-text">
+                            J'accepte que les informations saisies soient utilisées pour me recontacter dans le cadre de
+                            ma demande.
+                            Conformément à la réglementation, vous disposez d'un droit d'accès, de rectification et de
+                            suppression.
+                        </span>
+                    </label>
+                    <div class="error-message" *ngIf="f['rgpd'].invalid && f['rgpd'].touched">
+                        Vous devez accepter les conditions pour envoyer votre message
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit" [disabled]="isSubmitting">
+                        <span *ngIf="!isSubmitting">Envoyer ma demande</span>
+                        <span *ngIf="isSubmitting">Envoi en cours...</span>
+                        <svg *ngIf="!isSubmitting" viewBox="0 0 24 24" fill="none" width="16" height="16">
+                            <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                            <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="form-success" *ngIf="submitSuccess">
+                    <span class="success-icon">✓</span>
+                    <p>Votre message a bien été envoyé ! Safa vous recontactera dans les 48 heures.</p>
+                </div>
+
+                <div class="form-error" *ngIf="submitError">
+                    <span class="error-icon">⚠️</span>
+                    <p>Une erreur s'est produite. Veuillez réessayer ou nous contacter directement par email.</p>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Coordonnées -->
+        <div class="contact-info-wrapper reveal">
+            <div class="contact-info-card">
+                <div class="info-header">
+                    <!-- <span class="info-icon">📬</span> -->
+                    <h3>Nos coordonnées</h3>
+                </div>
+
+                <div class="info-item">
+                    <!-- <span class="item-icon">✉️</span> -->
+                    <div>
+                        <strong>Email</strong>
+                        <a href="mailto:contact@saf-formation.fr">contact@saf-formation.fr</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <!-- <span class="item-icon">⏱️</span> -->
+                    <div>
+                        <strong>Délai de réponse</strong>
+                        <p>Réponse garantie sous 48 heures ouvrées</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <!-- <span class="item-icon">📞</span> -->
+                    <div>
+                        <strong>Téléphone</strong>
+                        <a href="tel:+33123456789">01 23 45 67 89</a>
+                        <p>Du lundi au vendredi, 9h-17h</p>
+                    </div>
+                </div>
+
+                <div class="info-divider"></div>
+
+                <div class="info-note">
+                    <p>Un entretien d'orientation gratuit vous permet de clarifier votre situation, d'identifier le bon
+                        dispositif de financement et de choisir le programme adapté. Sans engagement.</p>
+                </div>
+
+                <div class="info-badge">
+
+                    <span>Réponse sous 48h</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ── BACKEND API SUGGESTION ── 
+  
+  Pour que le formulaire fonctionne, vous devez créer un endpoint API /api/contact.
+  
+  Exemple avec Node.js/Express + Nodemailer :
+
+  const nodemailer = require('nodemailer');
+  
+  app.post('/api/contact', async (req, res) => {
+    const { prenom, nom, email, telephone, situation, formationLabel, message } = req.body;
+    
+    // Email de confirmation au visiteur
+    const visitorMail = {
+      from: process.env.SMTP_FROM,
+      to: email,
+      subject: 'SAF Formation — Votre demande a bien été reçue',
+      html: `
+        <h2>Bonjour ${prenom},</h2>
+        <p>Nous avons bien reçu votre demande concernant <strong>${formationLabel}</strong>.</p>
+        <p>Safa vous recontactera dans les 48 heures pour un premier échange.</p>
+        <p>En attendant, retrouvez toutes les informations sur nos dispositifs de financement sur notre page dédiée.</p>
+        <p>Cordialement,<br>L'équipe SAF Formation</p>
+      `
+    };
+    
+    // Email de notification à SAF Formation
+    const adminMail = {
+      from: process.env.SMTP_FROM,
+      to: 'contact@saf-formation.fr',
+      subject: `[SAF Formation] Nouvelle demande — ${prenom} ${nom} — ${formationLabel}`,
+      html: `
+        <h2>Nouvelle demande de contact</h2>
+        <p><strong>Prénom :</strong> ${prenom}</p>
+        <p><strong>Nom :</strong> ${nom}</p>
+        <p><strong>Email :</strong> ${email}</p>
+        <p><strong>Téléphone :</strong> ${telephone}</p>
+        <p><strong>Situation :</strong> ${situation}</p>
+        <p><strong>Formation :</strong> ${formationLabel}</p>
+        <p><strong>Message :</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `
+    };
+    
+    await transporter.sendMail(visitorMail);
+    await transporter.sendMail(adminMail);
+    
+    res.json({ success: true });
+  });
+-->

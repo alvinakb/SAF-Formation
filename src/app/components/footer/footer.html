@@ -1,40 +1,76 @@
-<!-- FOOTER -->
+<!-- FOOTER SAF Formation -->
 <footer class="site-footer">
+
+  <!-- Effet lumineux décoratif -->
+  <div class="footer-glow"></div>
+
   <div class="footer-inner">
-    <!-- Column 1: Logo & Navigation -->
-    <div class="footer-col">
+
+    <!-- Colonne 1 : Logo & Navigation -->
+    <div class="footer-col footer-col--brand">
       <a class="footer-logo" routerLink="/">
         <span class="logo-saf">SAF</span>
         <span class="logo-formation">Formation</span>
       </a>
-      <nav class="footer-nav">
-        <a routerLink="/formations">Nos formations</a>
-        <a routerLink="/la-dirigeante">La dirigeante</a>
-        <a routerLink="/financement">Financement</a>
-        <a routerLink="/nos-valeurs">Nos valeurs</a>
-        <a routerLink="/faq">FAQ</a>
-        <a routerLink="/contact">Contact</a>
+
+      <p class="footer-tagline">
+        Organisme de formation certifié, accompagnant chaque parcours vers l'excellence professionnelle.
+      </p>
+
+      <nav class="footer-nav" aria-label="Navigation secondaire">
+        <a routerLink="/formations" routerLinkActive="active">Nos formations</a>
+        <a routerLink="/la-dirigeante" routerLinkActive="active">La dirigeante</a>
+        <a routerLink="/financement" routerLinkActive="active">Financement</a>
+        <a routerLink="/nos-valeurs" routerLinkActive="active">Nos valeurs</a>
+        <a routerLink="/faq" routerLinkActive="active">FAQ</a>
+        <a routerLink="/contact" routerLinkActive="active">Contact</a>
       </nav>
     </div>
 
-    <!-- Column 2: Contact -->
-    <div class="footer-col">
+    <!-- Colonne 2 : Contact -->
+    <div class="footer-col footer-col--contact">
       <p class="footer-heading">Contact</p>
-      <p>NDA XXXXXXXXX</p>
-      <a href="mailto:contact@saf-formation.fr">contact&#64;saf-formation.fr</a>
+
+      <p class="footer-nda">NDA {{ ndaNumber }}</p>
+
+      <a href="mailto:{{ contactEmail }}" class="footer-link footer-link--email">
+        {{ contactEmail }}
+      </a>
+
+      <a *ngIf="contactPhone" href="tel:{{ contactPhone }}" class="footer-link">
+        {{ contactPhone }}
+      </a>
     </div>
 
-    <!-- Column 3: Qualiopi & Legal -->
-    <div class="footer-col">
-      <img src="LOGO SAF Officiel.png" alt="Qualiopi - Certification qualité" class="footer-qualiopi" />
-      <p class="footer-qualiopi-mention">
-        Certifié au titre des catégories : Action de formation, VAE, Bilan de compétences.
-      </p>
-      <div class="footer-legal-links">
-        <a routerLink="/mentions-legales">Mentions légales</a>
-        <a routerLink="/cgv">CGV</a>
+    <!-- Colonne 3 : Qualiopi & Légal -->
+    <div class="footer-col footer-col--legal">
+      <p class="footer-heading">Certification</p>
+
+      <div class="footer-qualiopi-wrapper">
+        <img [src]="qualiopiLogo" alt="Qualiopi – Certification qualité" class="footer-qualiopi"
+          (error)="onLogoError($event)" />
       </div>
-      <p class="footer-copy">© SAF Formation 2026</p>
+
+      <p class="footer-qualiopi-mention">
+        Certifié au titre des catégories :<br>
+        Action de formation, VAE,<br>
+        Bilan de compétences.
+      </p>
     </div>
+
+  </div><!-- /footer-inner -->
+
+  <!-- Séparateur -->
+  <div class="footer-divider"></div>
+
+  <!-- Bas de page -->
+  <div class="footer-bottom">
+    <div class="footer-legal-links">
+      <a routerLink="/mentions-legales">Mentions légales</a>
+      <span class="footer-dot" aria-hidden="true"></span>
+      <a routerLink="/cgv">CGV</a>
+    </div>
+    <p class="footer-copy">© SAF Formation {{ currentYear }}</p>
   </div>
+
 </footer>

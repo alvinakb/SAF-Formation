@@ -1,209 +1,226 @@
-<!-- ═══════════════════════════════════════════════════════════════
-     SAF FORMATION — home.html (v4 — design final)
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- ================================================================
+     SAF FORMATION — home.html
+     Nav transparente sur hero, fond solide ensuite
+     ================================================================ -->
+
+<!-- ── NAVIGATION (transparente au départ, solide au scroll) ────── -->
+<!-- <nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-inner">
+    <a routerLink="/" class="nav-logo">SAF <span>Formation</span></a>
+    <div class="nav-links" [class.open]="menuOpen">
+      <a routerLink="/formations" routerLinkActive="active">Formations</a>
+      <a routerLink="/la-dirigeante" routerLinkActive="active">La dirigeante</a>
+      <a routerLink="/financement" routerLinkActive="active">Financement</a>
+      <a routerLink="/contact" class="nav-btn-cta">Contact</a>
+    </div>
+    <button class="nav-burger" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav> -->
 
 <!-- ── HERO ──────────────────────────────────────────────────────── -->
 <section class="hero" #heroSection>
+
+  <!-- Fond photo + overlays -->
   <div class="hero-bg">
-    <img class="hero-bg-img" src="../../../assets/images/SAFE.png" alt="" aria-hidden="true" />
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-bg-tint"></div>
+    <img src="../../../assets/images/SAFE.png" alt="" aria-hidden="true" loading="eager" />
+    <div class="hero-overlay"></div>
+    <div class="hero-tint"></div>
   </div>
-  <div class="hero-canvas">
-    <div class="hero-gradient"></div>
-    <canvas class="hero-grain-canvas" #grainCanvas></canvas>
-  </div>
+
+  <!-- Barre verticale décorative -->
   <div class="hero-rail">
-    <div class="rail-line" #railLine></div>
-    <span class="rail-year" #railYear>2026</span>
+    <div class="rail-line"></div>
+    <span class="rail-year">2026</span>
   </div>
+
+  <!-- Contenu principal -->
   <div class="hero-body">
-    <div class="hero-text-block">
-      <div class="hero-kicker" #heroKicker>
+    <div class="hero-left">
+
+      <div class="hero-kicker">
         <span class="kicker-dot"></span>
         <span>Organisme certifié Qualiopi</span>
       </div>
+
       <h1 class="hero-headline">
-        <span class="line-wrap" #heroLine1><span class="line-inner">Des compétences</span></span>
-        <span class="line-wrap" #heroLine2><span class="line-inner accent-gold">qui transforment</span></span>
-        <span class="line-wrap" #heroLine3><span class="line-inner">une carrière.</span></span>
+        Des compétences<br />
+        <em>qui transforment</em>
+        une carrière.
       </h1>
-      <p class="hero-sub" #heroSub>
-        SAF Formation accompagne professionnels et entreprises dans le développement
-        de compétences concrètes, immédiatement opérationnelles.
+
+      <p class="hero-sub">
+        SAF Formation accompagne professionnels et entreprises dans le
+        développement de compétences concrètes, immédiatement opérationnelles.
       </p>
-      <div class="hero-actions" #heroActions>
-        <a routerLink="/formations" class="cta-primary">
+
+      <div class="hero-actions">
+        <a routerLink="/formations" class="btn-primary">
           <span>Découvrir les formations</span>
-          <svg viewBox="0 0 24 24" fill="none"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
         </a>
-        <a routerLink="/la-dirigeante" class="cta-ghost">Parler à la dirigeante</a>
+        <a routerLink="/la-dirigeante" class="btn-ghost">Parler à la dirigeante</a>
       </div>
+
     </div>
-    <div class="hero-metrics" #heroMetrics>
-      <div class="metric-card" *ngFor="let stat of stats; let i = index" [attr.data-i]="i">
+
+    <!-- Métriques -->
+    <div class="hero-metrics">
+      <div class="metric-item" *ngFor="let stat of stats">
         <span class="metric-value">{{ stat.number }}</span>
-        <span class="metric-desc">{{ stat.label }}</span>
+        <span class="metric-label">{{ stat.label }}</span>
       </div>
     </div>
   </div>
-  <div class="hero-scroll" #heroScroll>
-    <div class="scroll-track"><div class="scroll-thumb"></div></div>
+
+  <!-- Indicateur de scroll -->
+  <div class="hero-scroll-hint">
+    <div class="scroll-track">
+      <div class="scroll-thumb"></div>
+    </div>
     <span>Défiler</span>
   </div>
-  <div class="hero-ticker" #heroTicker>
+
+  <!-- Ticker bas de hero -->
+  <div class="hero-ticker">
     <div class="ticker-track">
-      <span *ngFor="let t of tickerItems">{{ t }}&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</span>
-      <span *ngFor="let t of tickerItems">{{ t }}&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;</span>
+      <span *ngFor="let t of tickerItems">{{ t }}&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span *ngFor="let t of tickerItems">{{ t }}&nbsp;&nbsp;·&nbsp;&nbsp;</span>
     </div>
   </div>
-</section>
 
-<!-- ── FORMATIONS ─────────────────────────────────────────────────── -->
-<section class="formations" #formationsSection>
-  <div class="formations-container">
-    <div class="formations-header" #formationsHeader>
-      <div class="formations-header-left">
-        <p class="section-eyebrow" #formationsEyebrow>Nos formations</p>
-        <h2 class="section-title" #formationsTitle>
-          Explorez nos<br><em>programmes.</em>
-        </h2>
-      </div>
-      <div class="formations-header-right">
-        <p class="formations-lead" #formationsLead>
-          Des parcours ancrés dans la réalité terrain,<br>accessibles et finançables.
-        </p>
-      </div>
-    </div>
-    <div class="formations-filters" #filtersContainer>
-      <button class="filter-btn"
-              *ngFor="let cat of categories; let i = index"
-              [class.active]="activeCategory === cat.id"
-              (click)="filterCategory(cat.id)"
-              [attr.data-index]="i">
-        {{ cat.label }}
-      </button>
-      <div class="filter-active-bar" #activeBar></div>
-    </div>
-    <div class="slider-container" #sliderContainer>
-      <div class="slider-wrapper" #sliderWrapper>
-        <div class="slider-track" #sliderTrack>
-          <div class="formation-card"
-               *ngFor="let f of filteredFormations; let i = index"
-               [routerLink]="f.route"
-               [attr.data-index]="i">
-            <div class="card-media">
-              <img [src]="f.image" [alt]="f.title" loading="lazy" />
-              <div class="card-overlay"></div>
-              <div class="card-badges">
-                <span class="badge-category">{{ f.categoryLabel }}</span>
-                <span class="badge-funding">{{ f.badge }}</span>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-location">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                  {{ f.location }}
-                </span>
-                <span class="card-duration">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  {{ f.duration }}
-                </span>
-              </div>
-              <h3 class="card-title">{{ f.title }}</h3>
-              <p class="card-description">{{ f.desc }}</p>
-              <div class="card-link">
-                <span>Découvrir le programme</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="slider-navigation">
-        <button class="nav-btn prev" (click)="prevSlide()" [disabled]="currentSlide === 0">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="slider-progress">
-          <div class="progress-bar" #progressBar></div>
-          <span class="progress-text">{{ currentSlide + 1 }} / {{ maxVisibleSlides }}</span>
-        </div>
-        <button class="nav-btn next" (click)="nextSlide()" [disabled]="currentSlide >= maxVisibleSlides - 1">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="formations-footer">
-      <a routerLink="/formations" class="cta-outline">
-        Voir toutes nos formations
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-  </div>
 </section>
 
 
-<!-- ── QUALIOPI ───────────────────────────────────────────────────── -->
-<section class="qualiopi-band" #qualiopiSection>
+<!-- ── QUALIOPI BAND ──────────────────────────────────────────────── -->
+<section class="qualiopi-band">
   <div class="qband-inner">
     <div class="qband-text">
-      <p class="qband-title">Certification Qualiopi</p>
+      <span class="qband-eyebrow">Certification qualité</span>
       <p class="qband-body">
         La certification qualité a été délivrée au titre des catégories :
         <strong>Action de formation, VAE, Bilan de compétences.</strong>
       </p>
     </div>
-    <div class="qband-line"></div>
-    <a routerLink="/financement" class="qband-cta">Vos financements →</a>
+    <div class="qband-sep"></div>
+    <div class="qband-badges">
+      <span class="qband-pill" *ngFor="let f of financements">{{ f }}</span>
+    </div>
+    <a routerLink="/financement" class="qband-link">Vos financements →</a>
   </div>
 </section>
 
 
-<!-- ── DIRIGEANTE — Plein écran immersif ─────────────────────────── -->
-<section class="dirigeante" #dirigeanteSection>
+<!-- ── FORMATIONS ─────────────────────────────────────────────────── -->
+<section class="formations" id="formations">
+  <div class="formations-container">
 
-  <!-- Colonne photo — plein format -->
-  <div class="dir-stage" #dirVisual>
-    <div class="dir-stage-img-wrap">
-      <img
-        src="../../../assets/images/Dirigeante.png"
-        alt="Safa, Directrice pédagogique SAF Formation"
-        class="dir-stage-img"
-        #dirPhoto />
+    <div class="formations-header">
+      <div class="fh-left">
+        <span class="section-eyebrow">Nos formations</span>
+        <h2 class="section-title">Explorez nos<br /><em>programmes.</em></h2>
+      </div>
+      <p class="formations-lead">
+        Des parcours ancrés dans la réalité terrain,<br />accessibles et finançables.
+      </p>
     </div>
-    <!-- Overlay dégradé gauche–droite -->
-    <div class="dir-stage-fade"></div>
-    <!-- Carte flottante crédentials -->
-    <div class="dir-creds-card" #dirCredsCard>
-      <span class="dir-creds-eyebrow">Certifications</span>
-      <ul class="dir-creds-list">
+
+    <!-- Filtres -->
+    <div class="filters" #filtersContainer>
+      <button class="filter-btn" *ngFor="let cat of categories" [class.active]="activeCategory === cat.id"
+        (click)="filterCategory(cat.id)">
+        {{ cat.label }}
+      </button>
+    </div>
+
+    <!-- Grille de cartes -->
+    <div class="formations-grid">
+      <a class="f-card" *ngFor="let f of filteredFormations" [routerLink]="f.route">
+        <div class="f-card-media">
+          <img [src]="f.image" [alt]="f.title" loading="lazy" />
+          <div class="f-card-overlay"></div>
+          <div class="f-card-badges">
+            <span class="badge-cat">{{ f.categoryLabel }}</span>
+            <span class="badge-fund" *ngIf="f.badge">{{ f.badge }}</span>
+          </div>
+        </div>
+        <div class="f-card-body">
+          <div class="f-card-meta">
+            <span class="meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              {{ f.location }}
+            </span>
+            <span class="meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              {{ f.duration }}
+            </span>
+          </div>
+          <h3 class="f-card-title">{{ f.title }}</h3>
+          <p class="f-card-desc">{{ f.desc }}</p>
+          <div class="f-card-link">
+            <span>Découvrir le programme</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="formations-footer">
+      <a routerLink="/formations" class="btn-outline">
+        Voir toutes nos formations
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── DIRIGEANTE ─────────────────────────────────────────────────── -->
+<section class="dirigeante" id="dirigeante">
+
+  <div class="dir-visual">
+    <img src="../../../assets/images/Dirigeante.png" alt="Safa, Directrice pédagogique SAF Formation" #dirPhoto
+      loading="lazy" />
+    <div class="dir-fade"></div>
+    <div class="dir-creds">
+      <span class="creds-eyebrow">Certifications</span>
+      <ul class="creds-list">
         <li *ngFor="let b of dirigeanteBadges">
-          <span class="creds-bullet"></span>{{ b }}
+          <span class="creds-dot"></span>{{ b }}
         </li>
       </ul>
     </div>
   </div>
 
-  <!-- Colonne texte -->
   <div class="dir-content">
-
-    <!-- Bandeau eyebrow -->
-    <div class="dir-eyebrow-row" #dirEyebrow>
+    <div class="dir-eyebrow-row">
       <span class="dir-eyebrow-line"></span>
       <span class="dir-eyebrow-text">La dirigeante</span>
     </div>
 
-    <!-- Headline -->
-    <h2 class="dir-headline" #dirTitle>
-      <span class="dh-line-wrap"><span class="dh-line">Une expertise</span></span>
-      <span class="dh-line-wrap"><span class="dh-line italic-gold">rare,</span></span>
-      <span class="dh-line-wrap"><span class="dh-line">au service de</span></span>
-      <span class="dh-line-wrap"><span class="dh-line italic-gold">votre réussite.</span></span>
+    <h2 class="dir-headline">
+      Une expertise rare,<br />
+      <em>au service de votre réussite.</em>
     </h2>
 
-    <!-- Citation -->
-    <figure class="dir-blockquote" #dirQuote>
+    <figure class="dir-blockquote">
       <blockquote>
         "La formation n'est efficace que lorsqu'elle part
         de la réalité du terrain."
@@ -211,22 +228,69 @@
       <figcaption>— Safa, Directrice pédagogique</figcaption>
     </figure>
 
-    <!-- Corps -->
-    <p class="dir-body" #dirBody>
+    <p class="dir-body">
       Safa allie une formation académique de haut niveau
       <strong>(Master en ingénierie de la formation, niveau 7)</strong>
       à plus d'une décennie d'accompagnement direct
       auprès de professionnels et d'entreprises.
     </p>
 
-    <!-- CTA -->
-    <a routerLink="/la-dirigeante" class="dir-cta" #dirCta>
+    <a routerLink="/la-dirigeante" class="dir-cta">
       <span>Découvrir son parcours</span>
       <div class="dir-cta-circle">
-        <svg viewBox="0 0 24 24" fill="none"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
       </div>
     </a>
-
   </div>
 
 </section>
+
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<!-- <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a routerLink="/" class="footer-logo">SAF <span>Formation</span></a>
+      <p class="footer-tagline">
+        Des compétences concrètes,<br />immédiatement opérationnelles.
+      </p>
+      <div class="footer-certif">
+        <span class="certif-dot"></span>
+        <span>Certifié Qualiopi</span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Formations</h4>
+      <a routerLink="/formations/strategies-communication">Stratégies de communication</a>
+      <a routerLink="/formations/techniques-vente">Techniques de vente</a>
+      <a routerLink="/formations/bureautique-outils-numeriques">Bureautique & numérique</a>
+      <a routerLink="/formations/accueil-client">Accueil client</a>
+      <a routerLink="/formations/bilan-competences">Bilan de compétences</a>
+      <a routerLink="/formations/vae">Accompagnement VAE</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>L'organisme</h4>
+      <a routerLink="/la-dirigeante">La dirigeante</a>
+      <a routerLink="/financement">Financement</a>
+      <a routerLink="/contact">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <a routerLink="/mentions-legales">Mentions légales</a>
+      <a routerLink="/politique-confidentialite">Politique de confidentialité</a>
+      <a routerLink="/cgv">CGV</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 SAF Formation — Tous droits réservés</span>
+    <span>Paris · Île-de-France · Distanciel</span>
+  </div>
+</footer> -->

@@ -1,194 +1,377 @@
-<div class="formation-container">
-    <!-- Hero section avec eyebrow -->
-    <!-- <div class="hero-section">
-        <div class="eyebrow">ACTION DE FORMATION — ELIGIBLE CPF</div>
-        <h1>Stratégies des techniques de vente</h1>
-        <p class="accroche">
-            Vendre, c'est résoudre un problème que le client n'a pas encore nommé. Cette formation transforme
-            l'approche commerciale en une démarche structurée, basée sur l'écoute, la découverte des besoins
-            et la construction d'une argumentation qui convainc.
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — STRATÉGIES DES TECHNIQUES DE VENTE
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ── HERO ── -->
+<section class="hero" #heroSection>
+    <div class="hero-bg">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        <div class="hero-grain"></div>
+    </div>
+
+    <div class="hero-rail">
+        <div class="rail-line" #railLine></div>
+        <span class="rail-label">SAF · 2026</span>
+    </div>
+
+    <div class="hero-body">
+        <div class="hero-eyebrow" #heroEyebrow>
+            <span class="eyebrow-dot"></span>
+            <span>Action de formation — Éligible CPF</span>
+        </div>
+
+        <h1 class="hero-headline">
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner">Stratégies des</span>
+            </span>
+            <span class="line-wrap" #heroLine2>
+                <span class="line-inner">techniques de</span>
+            </span>
+            <span class="line-wrap" #heroLine3>
+                <span class="line-inner accent-gold">vente.</span>
+            </span>
+        </h1>
+
+        <p class="hero-sub" #heroSub>
+            Vendre, c'est résoudre un problème que le client n'a pas encore nommé.
+            Cette formation transforme l'approche commerciale en une démarche structurée,
+            basée sur l'écoute, la découverte des besoins et la construction d'une argumentation qui convainc.
         </p>
-    </div> -->
 
-    <!-- Informations clés -->
-    <!-- <div class="info-cards">
-        <div class="info-card">
-
-            <span class="info-label">Durée</span>
-            <span class="info-value">21 heures (3 jours)</span>
-            <span class="info-sub">Présentiel ou distanciel</span>
+        <div class="hero-pills" #heroPills>
+            <span class="pill pill-cpf">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Éligible CPF
+            </span>
+            <span class="pill pill-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                21 heures · 3 jours
+            </span>
+            <span class="pill pill-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                </svg>
+                Présentiel ou distanciel
+            </span>
         </div>
-        <div class="info-card">
 
-            <span class="info-label">Public visé</span>
-            <span class="info-value">Commerciaux, dirigeants, indépendants</span>
-            <span class="info-sub">TPE/PME, conseillers</span>
+        <div class="hero-actions" #heroActions>
+            <a routerLink="/contact" class="cta-primary">
+                <span>S'inscrire à cette formation</span>
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                    <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                    <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </a>
+            <a href="#programme" class="cta-ghost">Voir le programme →</a>
         </div>
-        <div class="info-card">
+    </div>
 
-            <span class="info-label">Prérequis</span>
-            <span class="info-value">Aucun prérequis requis</span>
-            <span class="info-sub">Débutants à perfectionnement</span>
+    <div class="hero-scroll" #heroScroll>
+        <div class="scroll-track">
+            <div class="scroll-thumb"></div>
         </div>
-        <div class="info-card">
+        <span>Défiler</span>
+    </div>
+</section>
 
-            <span class="info-label">Financement</span>
-            <span class="info-value">CPF, OPCO, Plan de développement</span>
-            <span class="info-sub">Plusieurs solutions disponibles</span>
+
+<!-- ── STATS BAR ── -->
+<div class="stats-bar" #statsBar>
+    <div class="stats-inner">
+        <div class="stat-item" *ngFor="let s of stats; let i = index" [attr.data-i]="i">
+            <span class="stat-value">{{ s.value }}</span>
+            <span class="stat-label">{{ s.label }}</span>
         </div>
-    </div> -->
-
-    <!-- Objectifs pédagogiques -->
-    <!-- <section class="section">
-        <h2> Objectifs pédagogiques</h2>
-        <ul class="objectifs-list">
-            <li>Structurer un entretien de vente de la prise de contact à la conclusion.</li>
-            <li>Maîtriser les techniques de questionnement et de découverte des besoins.</li>
-            <li>Construire une argumentation adaptée au profil de chaque client.</li>
-            <li>Traiter les objections avec méthode et confiance.</li>
-            <li>Développer sa posture commerciale et sa résistance au refus.</li>
-        </ul>
-    </section> -->
-
-    <!-- Programme détaillé -->
-    <!-- <section class="section">
-        <h2> Programme détaillé</h2>
-        <div class="programme">
-            <div class="jour">
-                <h3>Jour 1 : Psychologie de l'acheteur et posture commerciale</h3>
-                <ul>
-                    <li>Les motivations d'achat : comprendre les besoins explicites et implicites</li>
-                    <li>Les différents profils client (analytique, expressif, amiable, directif)</li>
-                    <li>S'adapter à son interlocuteur en 30 secondes</li>
-                    <li>Construire la confiance dès les premières secondes</li>
-                    <li>La communication non verbale en situation de vente</li>
-                    <li>Atelier : analyse de ses propres pratiques commerciales</li>
-                </ul>
-            </div>
-            <div class="jour">
-                <h3>Jour 2 : Méthodes de vente et découverte des besoins</h3>
-                <ul>
-                    <li>La méthode SPANCO : Situation, Problème, Avantage, Nécessité, Conséquence, Objection</li>
-                    <li>La méthode CAP SONCAS : Certitude, Avantage, Preuve / Sécurité, Orgueil, Nouveauté, Confort,
-                        Argent, Sympathie</li>
-                    <li>L'entretien de découverte : techniques de questionnement ouvert et fermé</li>
-                    <li>L'écoute active et la reformulation</li>
-                    <li>Construire une argumentation personnalisée</li>
-                    <li>Traitement des objections les plus fréquentes</li>
-                </ul>
-            </div>
-            <div class="jour">
-                <h3>Jour 3 : Négociation, conclusion et fidélisation</h3>
-                <ul>
-                    <li>Les techniques de closing (engagement en plusieurs étapes, alternative forcée)</li>
-                    <li>Savoir négocier sans brader</li>
-                    <li>Gérer les fins d'entretien et les reports d'achat</li>
-                    <li>Le suivi client : relances et satisfaction</li>
-                    <li>Construire une stratégie de fidélisation</li>
-                    <li>Mise en situation : entretien commercial complet</li>
-                </ul>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Public et prérequis -->
-    <!-- <div class="two-columns">
-        <section class="section">
-            <h2>👥 Public concerné</h2>
-            <p>Cette formation s'adresse à tous les professionnels ayant une activité de vente ou de conseil :</p>
-            <ul>
-                <li>Commerciaux sédentaires et itinérants</li>
-                <li>Technico-commerciaux et ingénieurs d'affaires</li>
-                <li>Indépendants et freelances</li>
-                <li>Dirigeants de TPE/PME</li>
-                <li>Conseillers en clientèle et chargés d'accueil</li>
-                <li>Toute personne souhaitant se perfectionner en vente</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2> Prérequis</h2>
-            <ul>
-                <li>Aucun prérequis requis</li>
-                <li>La formation s'adapte aux débutants comme aux vendeurs en activité</li>
-                <li>Un ordinateur et une connexion internet pour le distanciel</li>
-                <li>Une envie d'apprendre et de se dépasser !</li>
-            </ul>
-        </section>
-    </div> -->
-
-    <!-- Évaluation -->
-    <!-- <section class="section">
-        <h2> Évaluation des acquis</h2>
-        <div class="evaluation-content">
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Jeux de rôle enregistrés</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Débriefing collectif personnalisé</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Grille d'évaluation des compétences commerciales</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Attestation de fin de formation</span>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Financement -->
-    <!-- <section class="section financement">
-        <h2> Financements disponibles</h2>
-        <div class="financement-grid">
-            <div class="financement-item">
-                <strong>CPF</strong>
-                <span>Compte Personnel de Formation</span>
-            </div>
-            <div class="financement-item">
-                <strong>OPCO</strong>
-                <span>Opérateur de Compétences</span>
-            </div>
-            <div class="financement-item">
-                <strong>Plan de développement</strong>
-                <span>Plan de formation de l'entreprise</span>
-            </div>
-            <div class="financement-item">
-                <strong>France Travail</strong>
-                <span>Sous conditions (AIF, PTP)</span>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Avantages de la formation -->
-    <!-- <section class="section avantages">
-        <h2> Les + de cette formation</h2>
-        <div class="avantages-grid">
-            <div class="avantage-item">
-
-                <span>Méthodes éprouvées (SPANCO, CAP SONCAS)</span>
-            </div>
-            <div class="avantage-item">
-                <span class="avantage-icon">🎬</span>
-                <span>Jeux de rôle filmés et débriefés</span>
-            </div>
-            <div class="avantage-item">
-
-                <span>Cas pratiques personnalisés par secteur</span>
-            </div>
-            <div class="avantage-item">
-
-                <span>Plan d'action commercial personnalisé</span>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- CTA -->
-    <!-- <div class="cta-section">
-        <button class="btn-primary" routerLink="/contact">Demander un devis gratuit</button>
-        <button class="btn-secondary" routerLink="/financement">En savoir plus sur les financements</button>
-    </div> -->
+    </div>
 </div>
+
+
+<!-- ── PAGE LAYOUT ── -->
+<div class="page-layout">
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="page-main">
+
+        <!-- À propos -->
+        <div class="section-block reveal">
+            <p class="section-eyebrow">À propos</p>
+            <h2 class="section-title">
+                Une formation ancrée<br>dans la <em>réalité du terrain commercial.</em>
+            </h2>
+            <p class="section-lead">{{ formation.accroche }}</p>
+        </div>
+
+
+        <!-- ── OBJECTIFS — Slider ── -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Objectifs pédagogiques</p>
+            <h2 class="section-title reveal">Ce que vous <em>allez maîtriser.</em></h2>
+
+            <div class="obj-slider-wrapper reveal">
+                <div class="obj-slider" #objSlider>
+                    <div class="obj-slide" *ngFor="let obj of formation.objectifs; let i = index"
+                        [class.active]="i === activeObjSlide">
+                        <span class="obj-slide-num">0{{ i + 1 }}</span>
+                        <p class="obj-slide-text">{{ obj }}</p>
+                    </div>
+                </div>
+
+                <div class="obj-slider-nav">
+                    <button class="slider-btn slider-btn--prev" (click)="prevObj()" [disabled]="activeObjSlide === 0"
+                        aria-label="Précédent">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+
+                    <div class="slider-dots">
+                        <button class="slider-dot" *ngFor="let obj of formation.objectifs; let i = index"
+                            [class.active]="i === activeObjSlide" (click)="goToObj(i)"
+                            [attr.aria-label]="'Objectif ' + (i + 1)"></button>
+                    </div>
+
+                    <button class="slider-btn slider-btn--next" (click)="nextObj()"
+                        [disabled]="activeObjSlide === formation.objectifs.length - 1" aria-label="Suivant">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="obj-progress">
+                    <div class="obj-progress-bar"
+                        [style.width.%]="((activeObjSlide + 1) / formation.objectifs.length) * 100"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ── PROGRAMME — Carousel 3 jours ── -->
+        <div class="section-block" id="programme">
+            <p class="section-eyebrow reveal">Programme</p>
+            <h2 class="section-title reveal">
+                3 jours pour <em>transformer votre<br>approche commerciale.</em>
+            </h2>
+
+            <div class="programme-carousel reveal">
+                <div class="programme-track" #progTrack>
+                    <div class="day-card" *ngFor="let day of formation.programme; let i = index"
+                        [class.day-card--active]="i === activeDay" (click)="setActiveDay(i)">
+                        <div class="day-card-inner">
+                            <div class="day-card-top">
+                                <span class="day-number">{{ i + 1 }}</span>
+                                <span class="day-tag">{{ day.tag }}</span>
+                            </div>
+                            <h3 class="day-card-title">{{ day.title }}</h3>
+                            <div class="day-card-expand">
+                                <p class="day-card-desc">{{ day.desc }}</p>
+                                <div class="day-card-modules">
+                                    <span class="module-chip" *ngFor="let m of day.modules">{{ m }}</span>
+                                </div>
+                            </div>
+                            <div class="day-card-footer">
+                                <span class="day-card-duration">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        width="12" height="12">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    7 heures
+                                </span>
+                                <span class="day-card-toggle">
+                                    {{ i === activeDay ? 'Réduire ↑' : 'Détails ↓' }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ── PUBLIC & PRÉREQUIS ── -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Public & prérequis</p>
+            <h2 class="section-title reveal">Cette formation est <em>faite pour vous.</em></h2>
+
+            <div class="info-grid reveal-stagger">
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
+                            height="24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Public visé</p>
+                    <p class="info-card-value">{{ formation.publicVise }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
+                            height="24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Prérequis</p>
+                    <p class="info-card-value">{{ formation.prerequis }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
+                            height="24">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Durée</p>
+                    <p class="info-card-value">{{ formation.duree }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
+                            height="24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Modalité</p>
+                    <p class="info-card-value">Présentiel ou distanciel. Nous nous adaptons à vos contraintes.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ── AVANTAGES ── -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Les points forts</p>
+            <h2 class="section-title reveal">Pourquoi <em>choisir cette formation.</em></h2>
+
+            <div class="avantages-grid reveal-stagger">
+                <div class="avantage-card" *ngFor="let av of formation.avantages; let i = index">
+                    <div class="avantage-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14"
+                            height="14">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                    </div>
+                    <span>{{ av }}</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ── ÉVALUATION ── -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Évaluation</p>
+            <h2 class="section-title reveal">Comment vos acquis <em>sont mesurés.</em></h2>
+            <ul class="eval-list reveal">
+                <li *ngFor="let e of formation.evaluation; let i = index">
+                    <span class="eval-num">{{ i + 1 }}</span>
+                    <span>{{ e }}</span>
+                </li>
+            </ul>
+        </div>
+
+    </main>
+
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar" #sidebarEl>
+        <div class="sidebar-sticky">
+
+            <!-- Financement card -->
+            <div class="sidebar-card">
+                <div class="sidebar-card-header">
+                    <span class="sidebar-badge">100% finançable</span>
+                    <p class="sidebar-card-header-title">Cette formation est prise en charge.</p>
+                </div>
+                <div class="sidebar-card-body">
+                    <ul class="funding-list">
+                        <li class="funding-item" *ngFor="let f of formation.financement">
+                            <span class="funding-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12"
+                                    height="12">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            </span>
+                            {{ f }}
+                        </li>
+                    </ul>
+                    <a routerLink="/contact" class="sidebar-cta">
+                        S'inscrire maintenant
+                        <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                            <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                            <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </a>
+                    <a routerLink="/contact" class="sidebar-cta-outline">Demander un devis</a>
+                </div>
+            </div>
+
+            <!-- Contact card -->
+            <div class="contact-card">
+                <div class="contact-avatar-wrap">
+                    <div class="contact-avatar">S</div>
+                    <div class="contact-avatar-ring"></div>
+                </div>
+                <p class="contact-name">Safa</p>
+                <p class="contact-role">Directrice pédagogique</p>
+                <a routerLink="/la-dirigeante" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l.61-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    Parler à la dirigeante
+                </a>
+            </div>
+
+        </div>
+    </aside>
+
+</div>
+
+
+<!-- ── AUTRES FORMATIONS ── -->
+<section class="other-formations">
+    <div class="other-inner">
+        <div class="other-header">
+            <div>
+                <p class="other-eyebrow">À découvrir aussi</p>
+                <h2 class="other-title">Nos autres <em>formations.</em></h2>
+            </div>
+            <a routerLink="/formations" class="other-link">Voir tout le catalogue →</a>
+        </div>
+
+        <div class="other-grid">
+            <a class="other-card" *ngFor="let f of autresFormations; let i = index" [routerLink]="f.route">
+                <div class="other-card-num">0{{ i + 1 }}</div>
+                <h3 class="other-card-title">{{ f.title }}</h3>
+                <p class="other-card-meta">{{ f.meta }}</p>
+                <div class="other-card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

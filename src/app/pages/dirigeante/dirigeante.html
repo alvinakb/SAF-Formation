@@ -1,0 +1,141 @@
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — LA DIRIGEANTE
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ── HERO ── -->
+<section class="hero" #heroSection>
+
+    <div class="hero-bg">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grain"></div>
+    </div>
+
+    <div class="hero-rail">
+        <div class="rail-line" #railLine></div>
+        <span class="rail-label">SAF · 2026</span>
+    </div>
+
+    <div class="hero-body">
+
+        <div class="hero-eyebrow" #heroEyebrow>
+            <span class="eyebrow-dot"></span>
+            <span>DIRECTRICE PÉDAGOGIQUE — SAF FORMATION</span>
+        </div>
+
+        <h1 class="hero-headline">
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner">Une dirigeante</span>
+            </span>
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner accent-gold">experte et engagée.</span>
+            </span>
+        </h1>
+
+        <div class="hero-scroll" #heroScroll>
+            <div class="scroll-track">
+                <div class="scroll-thumb"></div>
+            </div>
+            <span>Défiler</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ── STATS BAR ── -->
+<div class="stats-bar" #statsBar>
+    <div class="stats-inner">
+        <div class="stat-item" *ngFor="let s of stats; let i = index" [attr.data-i]="i">
+            <span class="stat-value">{{ s.value }}</span>
+            <span class="stat-label">{{ s.label }}</span>
+        </div>
+    </div>
+</div>
+
+<!-- ── PAGE LAYOUT ── -->
+<div class="page-layout">
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="page-main">
+
+        <!-- Blocs expertise -->
+        <div class="expertise-section reveal">
+            <div class="expertise-grid">
+                <div class="expertise-card" *ngFor="let exp of expertises; let i = index">
+                    <div class="expertise-icon">{{ exp.icon }}</div>
+                    <h3 class="expertise-title">{{ exp.title }}</h3>
+                    <p class="expertise-desc">{{ exp.description }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vision pédagogique -->
+        <div class="section-block reveal">
+            <div class="section-header">
+                <span class="section-eyebrow">Vision pédagogique</span>
+                <h2 class="section-title">Une vision <em>pédagogique exigeante.</em></h2>
+            </div>
+            <div class="vision-content">
+                <p class="vision-text">
+                    À la tête de SAF Formation, Safa apporte une double expertise rare : celle de la conception
+                    pédagogique avancée,
+                    fruit d'un parcours académique de haut niveau, et celle du terrain, forgée en plus d'une décennie
+                    d'intervention
+                    directe auprès des professionnels.
+                </p>
+                <p class="vision-text">
+                    Sa qualité d'auditrice Qualiopi lui confère une vision à 360° des exigences de qualité en formation
+                    professionnelle.
+                    Chaque parcours est conçu en intégrant les meilleures pratiques du référentiel, garantissant une
+                    expérience apprenant irréprochable.
+                </p>
+            </div>
+        </div>
+
+        <!-- Citation -->
+        <div class="citation-block reveal">
+            <div class="citation-inner">
+                <span class="citation-quote">"</span>
+                <p class="citation-text">
+                    La formation n'est efficace que lorsqu'elle part de la réalité du terrain. Chaque programme que nous
+                    concevons
+                    est ancré dans des situations professionnelles concrètes, pour des compétences immédiatement
+                    opérationnelles.
+                </p>
+                <p class="citation-author">— Safa, Directrice pédagogique, SAF Formation</p>
+            </div>
+        </div>
+
+        <!-- Approche distinctive -->
+        <div class="section-block reveal">
+            <div class="section-header">
+                <span class="section-eyebrow">Approche pédagogique</span>
+                <h2 class="section-title">Une approche <em>pédagogique distinctive.</em></h2>
+            </div>
+            <div class="approche-content">
+                <p class="approche-text">
+                    SAF Formation ne propose pas de formations standard. Chaque programme est conçu sur mesure, en
+                    tenant compte
+                    du secteur d'activité, du niveau de départ et des objectifs précis de chaque apprenant. Cette
+                    personnalisation
+                    est rendue possible par la maîtrise des outils d'ingénierie de la formation et par une écoute
+                    constante des
+                    besoins terrain.
+                </p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section reveal">
+            <a routerLink="/contact" class="cta-primary">
+                <span>Prendre contact avec Safa</span>
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                    <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                    <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </a>
+        </div>
+
+    </main>
+
+</div>

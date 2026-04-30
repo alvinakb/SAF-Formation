@@ -1,0 +1,100 @@
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — FINANCEMENT
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- Hero -->
+<section class="hero" #heroSection>
+
+    <div class="hero-bg">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grain"></div>
+    </div>
+
+    <div class="hero-rail">
+        <div class="rail-line" #railLine></div>
+        <span class="rail-label">SAF · 2026</span>
+    </div>
+
+    <div class="hero-body">
+
+        <h1 class="hero-headline">
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner">Financer votre formation,</span>
+            </span>
+            <span class="line-wrap" #heroLine2>
+                <span class="line-inner accent-gold">c'est plus simple que vous ne le pensez.</span>
+            </span>
+        </h1>
+
+        <p class="hero-sub" #heroSub>
+            SAF Formation est certifié Qualiopi. Nos programmes sont éligibles aux principaux dispositifs publics
+            de financement de la formation professionnelle. Découvrez lequel correspond à votre situation.
+        </p>
+
+        <div class="hero-scroll">
+            <div class="scroll-track">
+                <div class="scroll-thumb"></div>
+            </div>
+            <span>Défiler</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Financement Section -->
+<div class="financement-section">
+    <div class="financement-container">
+
+        <!-- Introduction -->
+        <div class="financement-intro reveal">
+            <p class="intro-text">
+                Que vous soyez salarié, demandeur d'emploi, indépendant ou dirigeant d'entreprise,
+                il existe une solution de financement adaptée à votre situation. SAF Formation vous
+                guide pour identifier le dispositif le plus pertinent.
+            </p>
+        </div>
+
+        <!-- Blocs de financement -->
+        <div class="financement-grid">
+            <div class="financement-card reveal" *ngFor="let d of dispositifs" [id]="d.id">
+                <div class="card-icon">{{ d.icon }}</div>
+                <h2 class="card-title">{{ d.title }}</h2>
+                <p class="card-description">{{ d.description }}</p>
+                <a [href]="d.ctaLink" [target]="d.ctaExternal ? '_blank' : '_self'"
+                    [rel]="d.ctaExternal ? 'noopener noreferrer' : ''" class="card-cta">
+                    <span>{{ d.ctaText }}</span>
+                    <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                        <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Légende Qualiopi -->
+        <div class="qualiopi-badge reveal">
+            <div class="badge-content">
+                <!-- <span class="badge-icon">✅</span> -->
+                <div class="badge-text">
+                    <strong>SAF Formation est certifiée Qualiopi</strong>
+                    <p>Cette certification garantit la qualité de nos processus pédagogiques et l'éligibilité de nos
+                        formations aux financements publics.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA global -->
+        <div class="cta-global reveal">
+            <p class="cta-text">Vous n'êtes pas sûr de votre dispositif ?</p>
+            <a routerLink="/contact" class="cta-primary">
+                <span>Contactez-nous, nous vous orientons gratuitement</span>
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                    <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                    <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</div>

@@ -1,235 +1,311 @@
-<div class="formation-container">
-    <!-- Hero section avec eyebrow -->
-    <!-- <div class="hero-section">
-        <div class="eyebrow">ACTION DE FORMATION — ELIGIBLE CPF</div>
-        <h1>Bureautique et outils numériques</h1>
-        <p class="accroche">
-            La maîtrise des outils bureautiques conditionne directement la productivité quotidienne.
-            Cette formation outille les participants pour gagner en autonomie et en efficacité sur
-            les logiciels qu'ils utilisent chaque jour, sans détours inutiles.
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — BUREAUTIQUE ET OUTILS NUMÉRIQUES
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ── HERO ── -->
+<section class="hero" #heroSection>
+
+    <div class="hero-bg">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grain"></div>
+    </div>
+
+    <div class="hero-rail">
+        <div class="rail-line" #railLine></div>
+        <span class="rail-label">SAF · 2026</span>
+    </div>
+
+    <div class="hero-body">
+
+        <div class="hero-eyebrow" #heroEyebrow>
+            <span class="eyebrow-dot"></span>
+            <span>Action de formation — Éligible CPF</span>
+        </div>
+
+        <h1 class="hero-headline">
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner">Bureautique et</span>
+            </span>
+            <span class="line-wrap" #heroLine2>
+                <span class="line-inner">outils</span>
+            </span>
+            <span class="line-wrap" #heroLine3>
+                <span class="line-inner accent-gold">numériques.</span>
+            </span>
+        </h1>
+
+        <p class="hero-sub" #heroSub>
+            {{ formation.accroche }}
         </p>
-    </div> -->
 
-    <!-- Informations clés -->
-    <!-- <div class="info-cards">
-        <div class="info-card">
-
-            <span class="info-label">Durée</span>
-            <span class="info-value">14 à 28 heures</span>
-            <span class="info-sub">2 à 4 jours — Présentiel ou distanciel</span>
+        <div class="hero-pills" #heroPills>
+            <span class="pill pill-cpf">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Éligible CPF
+            </span>
+            <span class="pill pill-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                14 à 28 heures · 2-4 jours
+            </span>
+            <span class="pill pill-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                </svg>
+                Présentiel ou distanciel
+            </span>
         </div>
-        <div class="info-card">
 
-            <span class="info-label">Public visé</span>
-            <span class="info-value">Tout salarié ou demandeur d'emploi</span>
-            <span class="info-sub">Tous secteurs d'activité</span>
+        <div class="hero-actions" #heroActions>
+            <a routerLink="/contact" class="cta-primary">
+                <span>S'inscrire à cette formation</span>
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                    <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                    <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </a>
+            <a href="#programme" class="cta-ghost">Voir le programme →</a>
         </div>
-        <div class="info-card">
 
-            <span class="info-label">Prérequis</span>
-            <span class="info-value">Savoir utiliser un ordinateur</span>
-            <span class="info-sub">Naviguer sur internet</span>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" #heroScroll>
+        <div class="scroll-track">
+            <div class="scroll-thumb"></div>
         </div>
-        <div class="info-card">
+        <span>Défiler</span>
+    </div>
 
-            <span class="info-label">Financement</span>
-            <span class="info-value">CPF (TOSA), OPCO, France Travail</span>
-            <span class="info-sub">Plusieurs solutions disponibles</span>
+</section>
+
+<!-- ── STATS BAR ── -->
+<div class="stats-bar" #statsBar>
+    <div class="stats-inner">
+        <div class="stat-item" *ngFor="let s of stats; let i = index" [attr.data-i]="i">
+            <span class="stat-value">{{ s.value }}</span>
+            <span class="stat-label">{{ s.label }}</span>
         </div>
-    </div> -->
-
-    <!-- Objectifs pédagogiques -->
-    <!-- <section class="section">
-        <h2> Objectifs pédagogiques</h2>
-        <ul class="objectifs-list">
-            <li>Maîtriser les fonctionnalités essentielles et avancées de la suite bureautique (traitement de texte,
-                tableur, présentation).</li>
-            <li>Organiser et gérer sa messagerie professionnelle de façon efficace.</li>
-            <li>Utiliser les outils collaboratifs en ligne.</li>
-            <li>Produire des documents professionnels de qualité.</li>
-            <li>Gagner en autonomie numérique dans un environnement de travail moderne.</li>
-        </ul>
-    </section> -->
-
-    <!-- Programme détaillé -->
-    <!-- <section class="section">
-        <h2> Programme détaillé</h2>
-        <div class="programme">
-            <div class="module">
-                <h3>Module 1 : Traitement de texte</h3>
-                <p class="module-subtitle">Word / Google Docs / LibreOffice</p>
-                <ul>
-                    <li>Maîtrise de l'interface et des paramètres de base</li>
-                    <li>Mise en forme avancée : polices, paragraphes, listes, tableaux</li>
-                    <li>Utilisation des styles et des modèles de documents</li>
-                    <li>Insertion d'images, formes, graphiques et objets</li>
-                    <li>Réalisation de publipostage (fusion de courriers, étiquettes)</li>
-                    <li>Création de documents longs (rapports, mémoires, brochures)</li>
-                    <li>Atelier : création d'un document professionnel complet</li>
-                </ul>
-            </div>
-            <div class="module">
-                <h3>Module 2 : Tableur</h3>
-                <p class="module-subtitle">Excel / Google Sheets / LibreOffice Calc</p>
-                <ul>
-                    <li>Structure et organisation d'un tableau de données</li>
-                    <li>Formules essentielles (SOMME, MOYENNE, SI, RECHERCHEV)</li>
-                    <li>Références absolues et relatives</li>
-                    <li>Création de graphiques professionnels</li>
-                    <li>Tableaux croisés dynamiques (TCD)</li>
-                    <li>Filtres, tris et mise en forme conditionnelle</li>
-                    <li>Atelier : création d'un tableau de bord de suivi</li>
-                </ul>
-            </div>
-            <div class="module">
-                <h3>Module 3 : Présentation</h3>
-                <p class="module-subtitle">PowerPoint / Google Slides / Prezi</p>
-                <ul>
-                    <li>Structurer une présentation percutante</li>
-                    <li>Choix des templates, couleurs et typographies</li>
-                    <li>Animations sobres et transitions efficaces</li>
-                    <li>Insertion de médias (images, vidéos, audios)</li>
-                    <li>Création de masques et de modèles personnalisés</li>
-                    <li>Préparer une présentation pour différents supports (imprimé, écran, web)</li>
-                    <li>Atelier : création d'une présentation impactante</li>
-                </ul>
-            </div>
-            <div class="module">
-                <h3>Module 4 : Outils collaboratifs et messagerie</h3>
-                <p class="module-subtitle">Outlook, Gmail, Teams, Zoom, Drive, SharePoint</p>
-                <ul>
-                    <li>Organisation de sa messagerie (dossiers, règles, signatures)</li>
-                    <li>Gestion des contacts et des listes de diffusion</li>
-                    <li>Calendrier partagé et planification de réunions</li>
-                    <li>Stockage cloud et partage de fichiers (Drive, OneDrive)</li>
-                    <li>Outils de réunion en ligne (Teams, Zoom, Meet)</li>
-                    <li>Collaboration en temps réel sur documents</li>
-                    <li>Atelier : organisation d'un projet collaboratif</li>
-                </ul>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Public et prérequis -->
-    <!-- <div class="two-columns">
-        <section class="section">
-            <h2>👥 Public concerné</h2>
-            <p>Cette formation s'adresse à tous les professionnels souhaitant renforcer leurs compétences numériques
-                bureautiques :</p>
-            <ul>
-                <li>Salariés du secteur tertiaire, industriel, commercial</li>
-                <li>Demandeurs d'emploi en reconversion</li>
-                <li>Assistants administratifs et commerciaux</li>
-                <li>Managers et chefs d'équipe</li>
-                <li>Indépendants et auto-entrepreneurs</li>
-                <li>Personnels des collectivités et administrations</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2> Prérequis</h2>
-            <ul>
-                <li>Savoir utiliser un ordinateur (souris, clavier, écran)</li>
-                <li>Savoir naviguer sur internet et utiliser un moteur de recherche</li>
-                <li>Aucun niveau avancé requis — la formation s'adapte à chaque niveau</li>
-                <li>Accès à un ordinateur et à une connexion internet (pour le distanciel)</li>
-            </ul>
-        </section>
-    </div> -->
-
-    <!-- Format personnalisable -->
-    <!-- <section class="section format">
-        <h2>📐 Un format adapté à votre niveau</h2>
-        <div class="format-content">
-            <div class="format-level">
-                <h4>🟢 Niveau Initiation</h4>
-                <p><strong>14 heures (2 jours)</strong> — Pour les débutants et personnes souhaitant acquérir les bases
-                    essentielles.</p>
-            </div>
-            <div class="format-level">
-                <h4>🟡 Niveau Perfectionnement</h4>
-                <p><strong>21 heures (3 jours)</strong> — Pour les utilisateurs réguliers souhaitant gagner en
-                    efficacité.</p>
-            </div>
-            <div class="format-level">
-                <h4>🔴 Niveau Avancé</h4>
-                <p><strong>28 heures (4 jours)</strong> — Pour les utilisateurs confirmés visant la maîtrise complète.
-                </p>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Évaluation -->
-    <!-- <section class="section">
-        <h2> Évaluation des acquis</h2>
-        <div class="evaluation-content">
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Exercices pratiques sur logiciels</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Production d'un document final (dossier complet)</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Auto-évaluation des compétences</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Certification TOSA possible (optionnelle)</span>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Financement -->
-    <!-- <section class="section financement">
-        <h2> Financements disponibles</h2>
-        <div class="financement-grid">
-            <div class="financement-item">
-                <strong>CPF</strong>
-                <span>Compte Personnel de Formation — Éligible TOSA</span>
-            </div>
-            <div class="financement-item">
-                <strong>OPCO</strong>
-                <span>Opérateur de Compétences</span>
-            </div>
-            <div class="financement-item">
-                <strong>France Travail</strong>
-                <span>AIF, PTP, préparation opérationnelle à l'emploi</span>
-            </div>
-            <div class="financement-item">
-                <strong>Plan de développement</strong>
-                <span>Plan de formation de l'entreprise</span>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Certification TOSA -->
-    <!-- <section class="section certification">
-        <h2> Certifications associées</h2>
-        <div class="certification-content">
-            <div class="certification-item">
-                <span class="certif-icon">🎓</span>
-                <div>
-                    <strong>Certification TOSA</strong>
-                    <p>Optionnelle — Permet de valider officiellement votre niveau (de 0 à 1000 points) et d'obtenir un
-                        certificat reconnu par les recruteurs.</p>
-                </div>
-            </div>
-            <div class="certification-item">
-
-                <div>
-                    <strong>Attestation de formation professionnelle</strong>
-                    <p>Délivrée à l'issue de la formation, mentionnant les compétences acquises.</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- CTA -->
-    <!-- <div class="cta-section">
-        <button class="btn-primary" routerLink="/contact">Demander un devis gratuit</button>
-        <button class="btn-secondary" routerLink="/financement">En savoir plus sur les financements</button>
-    </div> -->
+    </div>
 </div>
+
+<!-- ── PAGE LAYOUT ── -->
+<div class="page-layout">
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="page-main">
+
+        <!-- À propos -->
+        <div class="section-block reveal">
+            <p class="section-eyebrow">À propos</p>
+            <h2 class="section-title">
+                Une formation pour <em>gagner en autonomie numérique.</em>
+            </h2>
+            <p class="section-lead">{{ formation.accroche }}</p>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Objectifs pédagogiques</p>
+            <h2 class="section-title reveal">Ce que vous <em>allez maîtriser.</em></h2>
+            <ul class="objectives-list reveal-stagger">
+                <li class="obj-item" *ngFor="let obj of formation.objectifs; let i = index">
+                    <span class="obj-num">0{{ i + 1 }}</span>
+                    <span class="obj-text">{{ obj }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Programme -->
+        <div class="section-block" id="programme">
+            <p class="section-eyebrow reveal">Programme</p>
+            <h2 class="section-title reveal">
+                4 modules pour <em>maîtriser les outils du quotidien.</em>
+            </h2>
+            <div class="programme-modules reveal">
+                <div class="module-item" *ngFor="let module of formation.programme">
+                    <span class="module-tag">{{ module.tag }}</span>
+                    <h3 class="module-title">{{ module.title }}</h3>
+                    <p class="module-subtitle">{{ module.subtitle }}</p>
+                    <ul class="module-list">
+                        <li *ngFor="let item of module.desc">{{ item }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Public & Prérequis -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Public & prérequis</p>
+            <h2 class="section-title reveal">Cette formation est <em>faite pour vous.</em></h2>
+            <div class="info-grid reveal-stagger">
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Public visé</p>
+                    <p class="info-card-value">{{ formation.publicVise }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Prérequis</p>
+                    <p class="info-card-value">{{ formation.prerequis }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Durée</p>
+                    <p class="info-card-value">{{ formation.duree }}</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Modalité</p>
+                    <p class="info-card-value">Présentiel ou distanciel. Nous nous adaptons à vos contraintes.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Niveaux de formation -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Un format adapté</p>
+            <h2 class="section-title reveal">Un parcours <em>sur mesure.</em></h2>
+            <div class="niveaux-grid reveal-stagger">
+                <div class="niveau-item" *ngFor="let niveau of formation.niveaux">
+                    <div class="niveau-badge">{{ niveau.niveau }}</div>
+                    <h4>{{ niveau.titre }}</h4>
+                    <p class="niveau-duree">{{ niveau.duree }}</p>
+                    <p class="niveau-desc">{{ niveau.desc }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Évaluation -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Évaluation</p>
+            <h2 class="section-title reveal">Comment vos acquis <em>sont mesurés.</em></h2>
+            <ul class="eval-list reveal">
+                <li *ngFor="let e of formation.evaluation">{{ e }}</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar" #sidebarEl>
+
+        <!-- Financement card -->
+        <div class="sidebar-card">
+            <div class="sidebar-card-header">
+                <p class="sidebar-card-header-label">Financement</p>
+                <p class="sidebar-card-header-title">Cette formation est prise en charge.</p>
+            </div>
+            <div class="sidebar-card-body">
+                <ul class="funding-list">
+                    <li class="funding-item" *ngFor="let f of formation.financement">
+                        <span class="funding-dot"></span>
+                        {{ f }}
+                    </li>
+                </ul>
+                <a routerLink="/contact" class="sidebar-cta">
+                    S'inscrire maintenant
+                    <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                        <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </a>
+                <a routerLink="/contact" class="sidebar-cta-outline">Demander un devis</a>
+            </div>
+        </div>
+
+        <!-- Certification TOSA card -->
+        <div class="sidebar-card certification-card">
+            <div class="sidebar-card-header">
+                <p class="sidebar-card-header-label">Certification</p>
+                <p class="sidebar-card-header-title">Validez vos compétences.</p>
+            </div>
+            <div class="sidebar-card-body">
+                <div class="certification-badge">
+                    <div>
+                        <strong>Certification TOSA</strong>
+                        <p>Optionnelle — Permet de valider officiellement votre niveau (de 0 à 1000 points) et d'obtenir
+                            un certificat reconnu par les recruteurs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact card -->
+        <div class="contact-card">
+            <div class="contact-avatar">S</div>
+            <p class="contact-name">Safa</p>
+            <p class="contact-role">Directrice pédagogique</p>
+            <a routerLink="/la-dirigeante" class="contact-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l.61-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Parler à la dirigeante
+            </a>
+        </div>
+
+    </aside>
+
+</div>
+
+<!-- ── AUTRES FORMATIONS ── -->
+<section class="other-formations">
+    <div class="other-inner">
+
+        <div class="other-header">
+            <div>
+                <p class="other-eyebrow">À découvrir aussi</p>
+                <h2 class="other-title">Nos autres <em>formations.</em></h2>
+            </div>
+            <a routerLink="/formations" class="other-link">Voir tout le catalogue →</a>
+        </div>
+
+        <div class="other-grid">
+            <a class="other-card" *ngFor="let f of autresFormations; let i = index" [routerLink]="f.route">
+                <div class="other-card-num">0{{ i + 1 }}</div>
+                <h3 class="other-card-title">{{ f.title }}</h3>
+                <p class="other-card-meta">{{ f.meta }}</p>
+                <div class="other-card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>

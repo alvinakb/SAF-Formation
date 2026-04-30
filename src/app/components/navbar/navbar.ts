@@ -66,7 +66,7 @@ export class Navbar implements OnInit, AfterViewInit {
             },
             {
               label: 'Stratégies des techniques de vente',
-              route: '/formations/bureautique-outils-numeriques',
+              route: 'formations/techniques-vente',
               desc: '',
             },
             {

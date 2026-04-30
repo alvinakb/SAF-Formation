@@ -1,284 +1,308 @@
-<div class="formation-container">
-    <!-- Hero section avec eyebrow -->
-    <div class="hero-section">
-        <div class="eyebrow">VAE — VALIDATION DES ACQUIS DE L'EXPÉRIENCE</div>
-        <h1>Accompagnement VAE</h1>
-        <p class="accroche">
-            L'expérience a de la valeur. La VAE permet de la faire reconnaître officiellement, en obtenant tout ou
-            partie
-            d'une certification professionnelle sans reprendre un cursus de formation classique. SAF Formation
-            accompagne
-            chaque candidat à toutes les étapes de ce parcours souvent sous-estimé.
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SAF FORMATION — ACCOMPAGNEMENT VAE
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ── HERO ── -->
+<section class="hero" #heroSection>
+
+    <div class="hero-bg">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-grain"></div>
+    </div>
+
+    <div class="hero-rail">
+        <div class="rail-line" #railLine></div>
+        <span class="rail-label">SAF · 2026</span>
+    </div>
+
+    <div class="hero-body">
+
+        <div class="hero-eyebrow" #heroEyebrow>
+            <span class="eyebrow-dot"></span>
+            <span>VAE — VALIDATION DES ACQUIS DE L'EXPÉRIENCE</span>
+        </div>
+
+        <h1 class="hero-headline">
+            <span class="line-wrap" #heroLine1>
+                <span class="line-inner">Accompagnement</span>
+            </span>
+            <span class="line-wrap" #heroLine2>
+                <span class="line-inner accent-gold">VAE.</span>
+            </span>
+        </h1>
+
+        <p class="hero-sub" #heroSub>
+            {{ formation.accroche }}
         </p>
+
+        <div class="hero-pills" #heroPills>
+            <span class="pill pill-cpf">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Éligible CPF
+            </span>
+            <span class="pill pill-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                24h · 6 mois max
+            </span>
+            <span class="pill pill-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                </svg>
+                Distanciel principalement
+            </span>
+        </div>
+
+        <div class="hero-actions" #heroActions>
+            <a routerLink="/contact" class="cta-primary">
+                <span>Demander un devis</span>
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                    <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                    <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </a>
+            <a href="#programme" class="cta-ghost">Voir le parcours →</a>
+        </div>
+
     </div>
 
-    <!-- Informations clés -->
-    <div class="info-cards">
-        <div class="info-card">
-            <span class="info-icon">⏱️</span>
-            <span class="info-label">Durée légale</span>
-            <span class="info-value">24 heures maximum</span>
-            <span class="info-sub">Sur 6 mois max — Distanciel principalement</span>
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" #heroScroll>
+        <div class="scroll-track">
+            <div class="scroll-thumb"></div>
         </div>
-        <div class="info-card">
-            <span class="info-icon">👥</span>
-            <span class="info-label">Public visé</span>
-            <span class="info-value">Toute personne avec 1 an d'expérience</span>
-            <span class="info-sub">Professionnelle, bénévole ou associative</span>
-        </div>
-        <div class="info-card">
-            <span class="info-icon">📋</span>
-            <span class="info-label">Prérequis</span>
-            <span class="info-value">12 mois d'expérience</span>
-            <span class="info-sub">Dans le domaine de la certification visée</span>
-        </div>
-        <div class="info-card">
-            <span class="info-icon">💰</span>
-            <span class="info-label">Financement</span>
-            <span class="info-value">CPF, OPCO, France Travail</span>
-            <span class="info-sub">Selon situation</span>
-        </div>
+        <span>Défiler</span>
     </div>
 
-    <!-- Objectifs pédagogiques -->
-    <section class="section">
-        <h2>🎯 Objectifs de l'accompagnement VAE</h2>
-        <ul class="objectifs-list">
-            <li>Comprendre le dispositif VAE et identifier la certification visée.</li>
-            <li>Analyser son expérience professionnelle et personnelle au regard du référentiel de la certification.
-            </li>
-            <li>Rédiger un dossier de recevabilité (livret 1) solide et convaincant.</li>
-            <li>Construire le dossier de preuves (livret 2) démontrant la maîtrise des compétences requises.</li>
-            <li>Se préparer à l'entretien avec le jury de validation.</li>
-        </ul>
-    </section>
+</section>
 
-    <!-- Le parcours VAE -->
-    <!-- <section class="section">
-        <h2>📋 Le parcours VAE en 3 phases</h2>
-        <div class="parcours">
-            <div class="phase">
-                <div class="phase-number">01</div>
-                <div class="phase-content">
-                    <h3>Phase préliminaire</h3>
-                    <ul>
-                        <li>Entretien d'orientation et d'information sur la VAE</li>
-                        <li>Identification de la certification adaptée à votre profil</li>
-                        <li>Vérification de l'éligibilité (12 mois d'expérience minimum)</li>
-                        <li>Choix du certificateur et du référentiel de certification</li>
-                        <li>Dépôt du dossier de recevabilité (livret 1)</li>
-                        <li>Accompagnement à la rédaction du livret 1</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="phase">
-                <div class="phase-number">02</div>
-                <div class="phase-content">
-                    <h3>Phase d'investigation</h3>
-                    <ul>
-                        <li>Analyse approfondie de votre expérience professionnelle</li>
-                        <li>Mise en correspondance avec les compétences du référentiel</li>
-                        <li>Identification des preuves à apporter (réalisations, documents, attestations)</li>
-                        <li>Construction progressive du livret 2 (dossier de preuves)</li>
-                        <li>Relecture et correction des premières versions</li>
-                        <li>Validation des compétences acquises et des axes de progression</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="phase">
-                <div class="phase-number">03</div>
-                <div class="phase-content">
-                    <h3>Phase de conclusion</h3>
-                    <ul>
-                        <li>Finalisation et relecture finale du livret 2</li>
-                        <li>Préparation à l'entretien avec le jury</li>
-                        <li>Simulation d'entretien jury enregistrée et débriefée</li>
-                        <li>Techniques de présentation et de défense de son dossier</li>
-                        <li>Remise du document de synthèse</li>
-                        <li>Suivi post-jury et accompagnement en cas de validation partielle</li>
-                    </ul>
-                </div>
-            </div>
+<!-- ── STATS BAR ── -->
+<div class="stats-bar" #statsBar>
+    <div class="stats-inner">
+        <div class="stat-item" *ngFor="let s of stats; let i = index" [attr.data-i]="i">
+            <span class="stat-value">{{ s.value }}</span>
+            <span class="stat-label">{{ s.label }}</span>
         </div>
-    </section> -->
+    </div>
+</div>
 
-    <!-- Pour qui et éligibilité -->
-    <!-- <div class="two-columns">
-        <section class="section">
-            <h2>👥 Pour qui ?</h2>
-            <p>La VAE s'adresse à toute personne justifiant d'au moins un an d'expérience :</p>
-            <ul>
-                <li>Salariés du secteur privé ou public</li>
-                <li>Demandeurs d'emploi</li>
-                <li>Indépendants, artisans, commerçants</li>
-                <li>Bénévoles et volontaires associatifs</li>
-                <li>Professionnels en reconversion</li>
-            </ul>
-            <div class="eligibilite">
-                <strong>✅ Conditions d'éligibilité :</strong>
-                <p>12 mois d'expérience (continus ou discontinus) dans le domaine de la certification visée, quelle que
-                    soit la nature du contrat (CDI, CDD, interim, bénévolat...).</p>
-            </div>
-        </section>
+<!-- ── PAGE LAYOUT ── -->
+<div class="page-layout">
 
-        <section class="section">
-            <h2>🏅 Certifications possibles</h2>
-            <p>La VAE permet d'obtenir tout ou partie d'une certification inscrite au RNCP (Répertoire National des
-                Certifications Professionnelles) :</p>
-            <ul>
-                <li>Diplômes (Bac, BTS, Licence, Master...)</li>
-                <li>Titres professionnels</li>
-                <li>Certificats de qualification professionnelle (CQP)</li>
-            </ul>
-            <div class="exemples">
-                <strong>Exemples de certifications accessibles via VAE :</strong>
-                <div class="exemples-list">
-                    <span>Management</span>
-                    <span>RH</span>
-                    <span>Comptabilité</span>
-                    <span>Commerce</span>
-                    <span>Social</span>
-                    <span>Santé</span>
-                    <span>Bâtiment</span>
-                </div>
-            </div>
-        </section>
-    </div> -->
+    <!-- ── MAIN CONTENT ── -->
+    <main class="page-main">
 
-    <!-- Les étapes clés de la VAE -->
-    <!-- <section class="section etapes">
-        <h2>⭐ Les étapes clés de la VAE</h2>
-        <div class="timeline">
-            <div class="timeline-step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <strong>Information et orientation</strong>
-                    <p>Comprendre le dispositif et choisir la bonne certification</p>
-                </div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <strong>Dépôt de la demande de recevabilité (livret 1)</strong>
-                    <p>Présenter son parcours et justifier de son expérience</p>
-                </div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <strong>Accompagnement à la construction du livret 2</strong>
-                    <p>Démontrer la maîtrise des compétences du référentiel</p>
-                </div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                    <strong>Entretien avec le jury</strong>
-                    <p>Présenter son dossier et répondre aux questions</p>
-                </div>
-            </div>
-            <div class="timeline-step">
-                <div class="step-number">5</div>
-                <div class="step-content">
-                    <strong>Validation totale ou partielle</strong>
-                    <p>Obtention du diplôme ou des blocs de compétences</p>
-                </div>
-            </div>
+        <!-- À propos -->
+        <div class="section-block reveal">
+            <p class="section-eyebrow">À propos</p>
+            <h2 class="section-title">
+                Faites reconnaître votre <em>expérience.</em>
+            </h2>
+            <p class="section-lead">{{ formation.accroche }}</p>
         </div>
-    </section> -->
 
-    <!-- Les + de notre accompagnement -->
-    <!-- <section class="section avantages">
-        <h2>⭐ Les points forts de notre accompagnement VAE</h2>
-        <div class="avantages-grid">
-            <div class="avantage-item">
-                <span class="avantage-icon">📝</span>
-                <span>Relecture et correction du livret 2 incluse</span>
-            </div>
-            <div class="avantage-item">
-                <span class="avantage-icon">🎤</span>
-                <span>Simulation d'entretien jury enregistrée</span>
-            </div>
-            <div class="avantage-item">
-                <span class="avantage-icon">📅</span>
-                <span>Suivi personnalisé tout au long du parcours</span>
-            </div>
-            <div class="avantage-item">
-                <span class="avantage-icon">📚</span>
-                <span>Aide à la recherche de documentation et de preuves</span>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Évaluation -->
-    <!-- <section class="section">
-        <h2> Modalités d'accompagnement</h2>
-        <div class="evaluation-content">
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Suivi de l'avancement à chaque étape</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Relecture et correction du livret 2</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Simulation d'entretien jury enregistrée et débriefée</span>
-            </div>
-            <div class="evaluation-item">
-                <span class="check">✓</span>
-                <span>Attestation d'accompagnement VAE</span>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Cadre légal -->
-    <!-- <section class="section legal">
-        <h2> Cadre légal de la VAE</h2>
-        <div class="legal-content">
-            <p><strong>La VAE est encadrée par le Code du travail (articles L6411-1 à R6412-4).</strong></p>
-            <ul>
-                <li>Durée légale maximale de l'accompagnement : 24 heures sur 6 mois maximum</li>
-                <li>Le candidat est libre de son engagement et peut interrompre le parcours à tout moment</li>
-                <li>La confidentialité des informations partagées est garantie</li>
-                <li>Le jury est indépendant et souverain dans sa décision</li>
-                <li>En cas de validation partielle, le candidat dispose de 5 ans pour obtenir la validation complète
+        <!-- Objectifs -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Objectifs</p>
+            <h2 class="section-title reveal">Ce que nous vous <em>aidons à accomplir.</em></h2>
+            <ul class="objectives-list reveal-stagger">
+                <li class="obj-item" *ngFor="let obj of formation.objectifs; let i = index">
+                    <span class="obj-num">0{{ i + 1 }}</span>
+                    <span class="obj-text">{{ obj }}</span>
                 </li>
             </ul>
         </div>
-    </section> -->
 
-    <!-- Financement -->
-    <!-- <section class="section financement">
-        <h2> Financements disponibles</h2>
-        <div class="financement-grid">
-            <div class="financement-item">
-                <strong>CPF</strong>
-                <span>Compte Personnel de Formation</span>
-            </div>
-            <div class="financement-item">
-                <strong>OPCO</strong>
-                <span>Opérateur de Compétences — Plan de développement</span>
-            </div>
-            <div class="financement-item">
-                <strong>France Travail</strong>
-                <span>AIF, PTP, aide individuelle</span>
-            </div>
-            <div class="financement-item">
-                <strong>Auto-financement</strong>
-                <span>Possibilité de paiement échelonné</span>
+        <!-- Parcours VAE en 3 phases -->
+        <div class="section-block" id="programme">
+            <p class="section-eyebrow reveal">Parcours VAE</p>
+            <h2 class="section-title reveal">
+                3 phases pour <em>valider vos acquis.</em>
+            </h2>
+            <div class="parcours-phases reveal">
+                <div class="phase-item" *ngFor="let phase of formation.phases">
+                    <div class="phase-number">{{ phase.number }}</div>
+                    <h3 class="phase-title">{{ phase.title }}</h3>
+                    <ul class="phase-list">
+                        <li *ngFor="let item of phase.desc">{{ item }}</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="note-financement">
-            ⚠️ Les frais d'inscription au certificateur (dépôt de dossier, passage devant le jury) ne sont pas inclus
-            dans nos honoraires d'accompagnement.
-        </div>
-    </section> -->
 
-    <!-- CTA -->
-    <!-- <div class="cta-section">
-        <button class="btn-primary" routerLink="/contact">Demander un devis gratuit</button>
-        <button class="btn-secondary" routerLink="/financement">En savoir plus sur les financements</button>
-    </div> -->
+        <!-- Public & Éligibilité -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Public & éligibilité</p>
+            <h2 class="section-title reveal">Cette VAE est <em>pour vous.</em></h2>
+            <div class="info-grid reveal-stagger">
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Public visé</p>
+                    <p class="info-card-value">{{ formation.publicVise }}</p>
+                    <div class="eligibilite-box">
+                        <strong> Conditions d'éligibilité :</strong>
+                        <p>12 mois d'expérience (continus ou discontinus) dans le domaine de la certification visée</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <p class="info-card-label">Prérequis</p>
+                    <p class="info-card-value">{{ formation.prerequis }}</p>
+                    <div class="certifs-possibles">
+                        <strong> Certifications possibles :</strong>
+                        <div class="certifs-list">
+                            <span *ngFor="let cert of formation.certificationsExemples" class="certif-tag">{{ cert
+                                }}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Timeline étapes clés -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Étapes clés</p>
+            <h2 class="section-title reveal">Le parcours VAE <em>en 5 étapes.</em></h2>
+            <div class="timeline-steps reveal-stagger">
+                <div class="timeline-step" *ngFor="let step of formation.timeline">
+                    <div class="step-number">{{ step.number }}</div>
+                    <div class="step-content">
+                        <strong>{{ step.title }}</strong>
+                        <p>{{ step.desc }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Avantages -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Les points forts</p>
+            <h2 class="section-title reveal">Pourquoi <em>choisir notre accompagnement.</em></h2>
+            <div class="avantages-grid reveal-stagger">
+                <div class="avantage-item" *ngFor="let avantage of formation.avantages">
+                    <span class="avantage-icon">✓</span>
+                    <span>{{ avantage }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Évaluation -->
+        <div class="section-block">
+            <p class="section-eyebrow reveal">Modalités d'accompagnement</p>
+            <h2 class="section-title reveal">Comment nous vous <em>accompagnons.</em></h2>
+            <ul class="eval-list reveal">
+                <li *ngFor="let e of formation.evaluation">{{ e }}</li>
+            </ul>
+        </div>
+
+        <!-- Cadre légal -->
+        <div class="section-block legal-block">
+            <p class="section-eyebrow reveal">Cadre légal</p>
+            <h2 class="section-title reveal">La VAE, <em>un cadre protégé.</em></h2>
+            <div class="legal-content">
+                <p><strong>La VAE est encadrée par le Code du travail (articles L6411-1 à R6412-4).</strong></p>
+                <ul>
+                    <li>Durée légale maximale de l'accompagnement : 24 heures sur 6 mois maximum</li>
+                    <li>Le candidat est libre de son engagement et peut interrompre le parcours à tout moment</li>
+                    <li>La confidentialité des informations partagées est garantie</li>
+                    <li>Le jury est indépendant et souverain dans sa décision</li>
+                    <li>En cas de validation partielle, le candidat dispose de 5 ans pour obtenir la validation complète
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar" #sidebarEl>
+
+        <!-- Financement card -->
+        <div class="sidebar-card">
+            <div class="sidebar-card-header">
+                <p class="sidebar-card-header-label">Financement</p>
+                <p class="sidebar-card-header-title">Cette formation est prise en charge.</p>
+            </div>
+            <div class="sidebar-card-body">
+                <ul class="funding-list">
+                    <li class="funding-item" *ngFor="let f of formation.financement">
+                        <span class="funding-dot"></span>
+                        {{ f }}
+                    </li>
+                </ul>
+                <div class="note-financement">{{ formation.noteFinancement }}</div>
+                <a routerLink="/contact" class="sidebar-cta">
+                    Demander un devis
+                    <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" />
+                        <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact card -->
+        <div class="contact-card">
+            <div class="contact-avatar">S</div>
+            <p class="contact-name">Safa</p>
+            <p class="contact-role">Directrice pédagogique</p>
+            <a routerLink="/la-dirigeante" class="contact-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l.61-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Parler à la dirigeante
+            </a>
+        </div>
+
+    </aside>
+
 </div>
+
+<!-- ── AUTRES FORMATIONS ── -->
+<section class="other-formations">
+    <div class="other-inner">
+
+        <div class="other-header">
+            <div>
+                <p class="other-eyebrow">À découvrir aussi</p>
+                <h2 class="other-title">Nos autres <em>accompagnements.</em></h2>
+            </div>
+            <a routerLink="/formations" class="other-link">Voir tout le catalogue →</a>
+        </div>
+
+        <div class="other-grid">
+            <a class="other-card" *ngFor="let f of autresFormations; let i = index" [routerLink]="f.route">
+                <div class="other-card-num">0{{ i + 1 }}</div>
+                <h3 class="other-card-title">{{ f.title }}</h3>
+                <p class="other-card-meta">{{ f.meta }}</p>
+                <div class="other-card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>
